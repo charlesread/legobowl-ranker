@@ -1,9 +1,9 @@
-<%@ page import="com.charlesread.Score" %>
+<%@ page import="com.charlesread.Judge" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'score.label', default: 'Score')}"/>
+    <g:set var="entityName" value="${message(code: 'judge.label', default: 'Judge')}"/>
     <title><g:message code="default.create.label" args="[entityName]"/></title>
 </head>
 
@@ -15,14 +15,14 @@
     </ul>
 </div>
 
-<div id="create-score" class="content scaffold-create" role="main">
+<div id="create-judge" class="content scaffold-create" role="main">
     <h1><g:message code="default.create.label" args="[entityName]"/></h1>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:hasErrors bean="${scoreInstance}">
+    <g:hasErrors bean="${judgeInstance}">
         <ul class="errors" role="alert">
-            <g:eachError bean="${scoreInstance}" var="error">
+            <g:eachError bean="${judgeInstance}" var="error">
                 <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
                         error="${error}"/></li>
             </g:eachError>

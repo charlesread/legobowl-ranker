@@ -14,6 +14,27 @@
 
 </style>
 
+<table>
+<tr>
+<td>
+    <label for="contestant">
+        <g:message code="score.contestant.label" default="Contestant"/>
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
+              required="" value="${scoreInstance?.contestant?.id}" class="many-to-one"/>
+</td>
+<td>
+    <label for="judge">
+        <g:message code="score.judge.label" default="Judge"/>
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select id="judge" name="judge.id" from="${com.charlesread.Judge.list()}" optionKey="id" required=""
+              value="${scoreInstance?.judge?.id}" class="many-to-one"/>
+</td>
+</tr>
+</table>
+
 <g:criterionBlock color="#FFD0CA" code="a11" criterion="${scoreInstance.a11}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a12" criterion="${scoreInstance.a12}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a13" criterion="${scoreInstance.a13}"></g:criterionBlock>
@@ -51,21 +72,5 @@
 <g:criterionBlock color="#DBEFFF" code="c32" criterion="${scoreInstance.c32}"></g:criterionBlock>
 <g:criterionBlock color="#DBEFFF" code="c33" criterion="${scoreInstance.c33}"></g:criterionBlock>
 
-<div class="fieldcontain ${hasErrors(bean: scoreInstance, field: 'contestant', 'error')} required">
-    <label for="contestant">
-        <g:message code="score.contestant.label" default="Contestant"/>
-        <span class="required-indicator">*</span>
-    </label>
-    <g:select id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
-              required="" value="${scoreInstance?.contestant?.id}" class="many-to-one"/>
-</div>
 
-<div class="fieldcontain ${hasErrors(bean: scoreInstance, field: 'judge', 'error')} required">
-    <label for="judge">
-        <g:message code="score.judge.label" default="Judge"/>
-        <span class="required-indicator">*</span>
-    </label>
-    <g:select id="judge" name="judge.id" from="${com.charlesread.Judge.list()}" optionKey="id" required=""
-              value="${scoreInstance?.judge?.id}" class="many-to-one"/>
-</div>
 
