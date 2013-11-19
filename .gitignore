@@ -18,3 +18,4 @@ stacktrace.log
 grails-app/conf/DataSource.groovy
 .idea/*
 *.iml
+/test/
