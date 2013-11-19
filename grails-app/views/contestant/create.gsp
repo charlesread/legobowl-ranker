@@ -8,12 +8,7 @@
 </head>
 
 <body>
-
-<div class="nav" role="navigation">
-    <ul>
-        <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]"/></g:link></li>
-    </ul>
-</div>
+<g:render template="nav" />
 
 <div id="create-contestant" class="content scaffold-create" role="main">
     <h1><g:message code="default.create.label" args="[entityName]"/></h1>

@@ -17,27 +17,27 @@ class LegoRankTagLib {
         Criterion c = Criterion.findByCode(attr.code)
 
 
-        out << "<div class='criterionBlock' style='background-color:${attr.color};'><table width='800'>"
+        out << "<div class='criterionBlock' style='background-color:${attr.color};'><table class='criterionTable' width='800'>"
         out << "<tr>"
-        out << "<td colspan='2' style='font-weight:bold;'>"
+        out << "<td colspan='2'>"
         out << c.name
         out << "</td>"
-        out << "<td colspan='3' style='font-style:italic;'>"
+        out << "<td colspan='3'>"
         out << c.description
         out << "</td>"
         out << "</tr>"
-        out << "<tr class='radiorow'>"
+        out << "<tr class='radiorow' width='40'>"
         out << "<td>ND</td>"
-        out << "<td>"
+        out << "<td width='190'>"
         out << c.s1
         out << "</td>"
-        out << "<td>"
+        out << "<td width='190'>"
         out << c.s2
         out << "</td>"
-        out << "<td>"
+        out << "<td width='190'>"
         out << c.s3
         out << "</td>"
-        out << "<td>"
+        out << "<td width='190'>"
         out << c.s4
         out << "</td>"
         out << "</tr>"

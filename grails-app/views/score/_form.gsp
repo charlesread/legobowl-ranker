@@ -12,6 +12,35 @@
         margin: 15px;
     }
 
+    .blockWrapper {
+        width: 900px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px;
+        margin: 15px 0 15px 0;
+    }
+
+    div.blockWrapper span:first-child {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    table.criterionTable tr:first-child td:first-child {
+        font-weight: bold;
+    }
+
+    table.criterionTable tr:first-child td:nth-child(2) {
+        font-size: 12px;
+        font-style: italic;
+
+    }
+
+    table.criterionTable tr:nth-child(2) td {
+        font-size: 14px;
+    }
+
+
+
 </style>
 
 <table>
@@ -35,17 +64,25 @@
 </tr>
 </table>
 
+<div class="blockWrapper">
+    <span>Inspiration</span>
 <g:criterionBlock color="#FFD0CA" code="a11" criterion="${scoreInstance.a11}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a12" criterion="${scoreInstance.a12}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a13" criterion="${scoreInstance.a13}"></g:criterionBlock>
+</div>
 
+<div class="blockWrapper">
 <g:criterionBlock color="#FFD0CA" code="a21" criterion="${scoreInstance.a21}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a22" criterion="${scoreInstance.a22}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a23" criterion="${scoreInstance.a23}"></g:criterionBlock>
+</div>
 
+<div class="blockWrapper">
 <g:criterionBlock color="#FFD0CA" code="a31" criterion="${scoreInstance.a31}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a32" criterion="${scoreInstance.a32}"></g:criterionBlock>
 <g:criterionBlock color="#FFD0CA" code="a33" criterion="${scoreInstance.a33}"></g:criterionBlock>
+</div>
+
 
 <g:criterionBlock color="#FFFFC0" code="b11" criterion="${scoreInstance.b11}"></g:criterionBlock>
 <g:criterionBlock color="#FFFFC0" code="b12" criterion="${scoreInstance.b12}"></g:criterionBlock>
