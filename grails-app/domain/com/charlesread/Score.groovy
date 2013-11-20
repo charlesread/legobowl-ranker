@@ -2,7 +2,7 @@ package com.charlesread
 
 class Score {
 
-    Judge judge
+    AppUser judge
     Contestant contestant
 
     Integer a11

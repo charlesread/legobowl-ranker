@@ -1,3 +1,4 @@
+import com.charlesread.AppUser
 import com.charlesread.Contestant
 import com.charlesread.Criterion
 import com.charlesread.Judge
@@ -10,6 +11,9 @@ class BootStrap {
 //        def charles = new Judge(name: 'Charles').save(flush: true)
 //        def sarah = new Judge(name: 'Sarah').save(flush: true)
 //        def chris = new Judge(name: 'Chris').save(flush: true)
+//        def charles = AppUser.get(3)
+//        def sarah = AppUser.get(4)
+//        def chris = AppUser.get(5)
 //
 //        def team1 = new Contestant(name: 'Team 1').save(flush: true)
 //        def team2 = new Contestant(name: 'Team 2').save(flush: true)
@@ -302,7 +306,7 @@ class BootStrap {
 //                c31:  1,
 //                c32:  1,
 //                c33:  1).save(flush: true)
-//
+
 //        def c1 = new Criterion(code: "a11", name: "Inspiration - Discovery", description: "Balanced emphasis on all three aspects (Robot, Project, Core Values) of FLL; it's not just about winning awards", s1: "emphasis on only one aspect; others neglected", s2: "emphasis on two aspects; one aspect neglected", s3: "emphasis on all three aspects", s4: "balanced emphasis on all three aspects").save(flush: true)
 //        def c2 = new Criterion(code: "a12", name: "Inspiration - Team Spirit", description: "Enthusiastic and fun expression of the team identity ", s1: "minimal enthusiasm AND minimal identity ", s2: "minimal enthusiasm OR minimal identity ", s3: "team is enthusiastic and fun; clear identity ", s4: "team engages others in their enthusiasm & fun; clear identity ").save(flush: true)
 

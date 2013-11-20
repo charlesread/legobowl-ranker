@@ -34,7 +34,7 @@
             <li><g:link controller="criterion" action="list">criteria</g:link></li>
             %{--<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SUPERVISOR">--}%
                 <li><g:link controller="contestant" action="list">contestants</g:link></li>
-                <li><g:link controller="judge" action="list">judges</g:link></li>
+                <li><g:link controller="appUser" action="list">judges and users</g:link></li>
             %{--</sec:ifAnyGranted>--}%
         </ul>
     </div>

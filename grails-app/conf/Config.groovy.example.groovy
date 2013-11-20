@@ -112,7 +112,7 @@ grails.plugin.springsecurity.rejectIfNoRule = true
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 
 grails.plugin.springsecurity.ldap.context.managerDn = 'CN=Cognos,OU=External,OU=Misc Accounts,OU=Generic Logins,DC=ccsunet,DC=clayton,DC=edu'
-grails.plugin.springsecurity.ldap.context.managerPassword = '101Kr.2y9W'
+grails.plugin.springsecurity.ldap.context.managerPassword = ''
 grails.plugin.springsecurity.ldap.context.server = 'ldaps://ldap.clayton.edu:636/'
 grails.plugin.springsecurity.ldap.authorities.ignorePartialResultException = true // typically needed for Active Directory
 grails.plugin.springsecurity.ldap.search.base = 'DC=ccsunet,DC=clayton,DC=edu'
