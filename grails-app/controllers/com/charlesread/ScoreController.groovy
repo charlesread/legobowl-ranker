@@ -9,6 +9,9 @@ class ScoreController {
             projections {
 
                 groupProperty('contestant')
+                avg('agg_a','aggA')
+                avg('agg_b','aggB')
+                avg('agg_c','aggC')
                 avg('agg_total','aggTotal')
 
             }
@@ -18,8 +21,7 @@ class ScoreController {
 
         def out = new Object[c.size()]
         c.eachWithIndex {v,i ->
-            //render v[4]
-            out[i] = new Aggregate(contestant: v[0], aggTotal: v[1])
+            out[i] = new Aggregate(contestant: v[0], aggA: v[1], aggB: v[2], aggC: v[3], aggTotal: v[4])
         }
         render(view: 'aggregate', model: [aggregates: out])
 

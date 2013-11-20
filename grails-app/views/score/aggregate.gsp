@@ -4,7 +4,7 @@
 <head>
     <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'score.label', default: 'Score')}"/>
-    <title><g:message code="default.list.label" args="[entityName]"/></title>
+    <title>score aggregation</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 <g:render template="nav" />
 
 <div id="list-score" class="content scaffold-list" role="main">
-    <h1><g:message code="default.list.label" args="[entityName]"/></h1>
+    <h1>score aggregation (by contestant)</h1>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
@@ -21,6 +21,12 @@
         <tr>
 
             <g:sortableColumn property="contestant" title="${message(code: 'score.c1.label', default: 'Contestant')}"/>
+
+            <g:sortableColumn property="aggA" title="Core Values Average"/>
+
+            <g:sortableColumn property="aggB" title="Project Average"/>
+
+            <g:sortableColumn property="aggC" title="Robot Design Average"/>
 
             <g:sortableColumn property="aggTotal" title="${message(code: 'score.c1.label', default: 'Overall Average')}"/>
 
@@ -37,6 +43,12 @@
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td>${fieldValue(bean: scoreInstance, field: "contestant")}</td>
+
+                <td>${fieldValue(bean: scoreInstance, field: "aggA")} (${((fieldValue(bean: scoreInstance, field: "aggA").toFloat() / 4.toFloat())*100).toString()[0..3]}%)</td>
+
+                <td>${fieldValue(bean: scoreInstance, field: "aggB")} (${((fieldValue(bean: scoreInstance, field: "aggB").toFloat() / 4.toFloat())*100).toString()[0..3]}%)</td>
+
+                <td>${fieldValue(bean: scoreInstance, field: "aggC")} (${((fieldValue(bean: scoreInstance, field: "aggC").toFloat() / 4.toFloat())*100).toString()[0..3]}%)</td>
 
                 <td>${fieldValue(bean: scoreInstance, field: "aggTotal")} (${((fieldValue(bean: scoreInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).toString()[0..3]}%)</td>
 

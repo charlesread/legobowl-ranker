@@ -10,6 +10,9 @@ package com.charlesread
 class Aggregate {
 
     String contestant
+    Float aggA
+    Float aggB
+    Float aggC
     Float aggTotal
 
 }
