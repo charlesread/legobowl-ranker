@@ -91,6 +91,8 @@ log4j = {
 
     //trace 'org.hibernate.type'
     //debug 'org.hibernate.SQL'
+
+    //debug 'org.springframework.security'
 }
 
 
@@ -99,9 +101,9 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.charlesread.A
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.charlesread.AppUserAppRole'
 grails.plugin.springsecurity.authority.className = 'com.charlesread.AppRole'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
+	'/':                              ['ROLE_USER','ROLE_ADMIN'],
+	'/index':                         ['ROLE_USER','ROLE_ADMIN'],
+	'/index.gsp':                     ['ROLE_USER','ROLE_ADMIN'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
@@ -110,17 +112,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
 grails.plugin.springsecurity.rejectIfNoRule = true
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.providerNames = ['daoAuthenticationProvider']
 
-grails.plugin.springsecurity.ldap.context.managerDn = 'CN=Cognos,OU=External,OU=Misc Accounts,OU=Generic Logins,DC=ccsunet,DC=clayton,DC=edu'
-grails.plugin.springsecurity.ldap.context.managerPassword = ''
-grails.plugin.springsecurity.ldap.context.server = 'ldaps://ldap.clayton.edu:636/'
-grails.plugin.springsecurity.ldap.authorities.ignorePartialResultException = true // typically needed for Active Directory
-grails.plugin.springsecurity.ldap.search.base = 'DC=ccsunet,DC=clayton,DC=edu'
-grails.plugin.springsecurity.ldap.search.filter="sAMAccountName={0}" // for Active Directory you need this
-grails.plugin.springsecurity.ldap.search.searchSubtree = true
-grails.plugin.springsecurity.ldap.auth.hideUserNotFoundExceptions = false
-grails.plugin.springsecurity.ldap.search.attributesToReturn = ['mail', 'displayName'] // extra attributes you want returned; see below for custom classes that access this data
-grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','daoAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP
-
-grails.plugin.springsecurity.ldap.authorities.retrieveDatabaseRoles = true
 

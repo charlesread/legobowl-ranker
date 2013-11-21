@@ -61,6 +61,6 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
         compile ':spring-security-core:2.0-RC2'
-        compile ":spring-security-ldap:2.0-RC2"
+        //compile ":spring-security-ldap:2.0-RC2"
     }
 }
