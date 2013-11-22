@@ -1,6 +1,6 @@
-<div class="nav" role="navigation">
+<div class="subnav" role="navigation">
     <ul>
-        <li><g:link class="create" action="create">new criterion</g:link></li>
-        <li><g:link class="list" action="list">show existing criteria</g:link></li>
+        <li><g:link action="create">new criterion</g:link></li>
+        <li><g:link action="list">show existing criteria</g:link></li>
     </ul>
 </div>

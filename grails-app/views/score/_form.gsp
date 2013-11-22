@@ -18,9 +18,13 @@
     .blockWrapper {
         width: 900px;
         border-radius: 5px;
-        background-color: #ffffff;
+        background-color: #999;
         padding: 10px;
         margin: 15px 0 15px 0;
+    }
+
+    .blockWrapper span:first-child {
+        color: #fff;
     }
 
     div.blockWrapper span:first-child {

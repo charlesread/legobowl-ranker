@@ -49,7 +49,7 @@
         <td>
             <g:message code="appUser.authority.label" default="Roles" /></td>
         <td>
-            <select multiple name="roles">
+            <select multiple name="roles" id="roles">
                 <g:each in="${com.charlesread.AppRole.list()}" var="appRoleInstance">
                     <option <g:if test="${params.action.equals('create')}">
                     </g:if>

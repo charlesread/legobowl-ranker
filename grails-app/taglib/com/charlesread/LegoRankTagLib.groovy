@@ -2,6 +2,8 @@ package com.charlesread
 
 class LegoRankTagLib {
 
+    def springSecurityService
+
     def radioLego = {attr, body ->
         out << "<tr class='radiorow'>"
         out << "<td style='width:30px;'><input class='roundedOne' type='radio' name='${attr.name}' ${attr.val == 0 ? 'checked' : ''} value='0' /></td>"
@@ -44,6 +46,12 @@ class LegoRankTagLib {
         out << g.radioLego(name: attr.code, val: attr.criterion)
         out << "</table></div>"
 
+
+    }
+
+    def currentUserFirstName = {attr, body ->
+
+        out << springSecurityService.currentUser.firstName
 
     }
 
