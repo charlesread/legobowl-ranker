@@ -3,7 +3,7 @@
 
 html, body {
 	margin:0px;
-	background-color:#eee;
+	background-color:#fff;
 	font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -205,20 +205,20 @@ input[type=text], input[type=password], textarea {
   outline: none;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #bbb;
   border-radius:5px;
   font-size: 14px;
-  background-color: #333;
-  color: #FFF;
+  background-color: #ccc;
+  color: #555;
   width:450px;
 
 }
  
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
-  box-shadow: 0 0 5px #0000FF;
+  box-shadow: 0 0 5px #00FF3C;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #0000AA;
+  /*border: 1px solid #0000AA;*/
 }
 
 ::-webkit-input-placeholder {
@@ -258,6 +258,10 @@ table.form tr td:nth-child(2) {
     color: red;
 }
 
+.errors, .message {
+    margin: 15px 0 15px 0;
+}
+
 .errors {
     background-color: #FFD9D9;
     padding: 10px;
@@ -265,6 +269,15 @@ table.form tr td:nth-child(2) {
     border-radius: 5px;
     list-style-type: none;
     color: #B52B2B;
+}
+
+.message {
+    padding: 10px 0px 10px 30px;
+    background-color: #FFF1B5;
+    border: 1px solid #FFDB3B;
+    color: #B39929;
+    border-radius: 5px;
+    position: relative;
 }
 
 .linkoutput {

@@ -16,14 +16,12 @@ class ScoreController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
 
         def scoreInstanceList
 
         if (currentUser().admin) {
             scoreInstanceList = Score.list(params)
         } else {
-
             scoreInstanceList = Score.findAllByJudge(currentUser(),params)
         }
 
@@ -41,12 +39,13 @@ class ScoreController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
         redirect(action: "show", id: scoreInstance.id)
     }
 
     def show(Long id) {
         def scoreInstance = Score.get(id)
+        if (!canAlter(scoreInstance)) return
         if (!scoreInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), id])
             redirect(action: "list")
@@ -58,6 +57,7 @@ class ScoreController {
 
     def edit(Long id) {
         def scoreInstance = Score.get(id)
+        if (!canAlter(scoreInstance)) return
         if (!scoreInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), id])
             redirect(action: "list")
@@ -70,7 +70,7 @@ class ScoreController {
     def update(Long id, Long version) {
         def scoreInstance = Score.get(id)
         if (!scoreInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
             redirect(action: "list")
             return
         }
@@ -92,25 +92,26 @@ class ScoreController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
         redirect(action: "show", id: scoreInstance.id)
     }
 
     def delete(Long id) {
         def scoreInstance = Score.get(id)
+        if (!canAlter(scoreInstance)) return
         if (!scoreInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
             redirect(action: "list")
             return
         }
 
         try {
             scoreInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'score.label', default: 'Score'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'score.label', default: 'Score'), id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'score.label', default: 'Score'), scoreInstance.contestant.name])
             redirect(action: "show", id: id)
         }
     }
@@ -140,5 +141,14 @@ class ScoreController {
 
     AppUser currentUser() {
         springSecurityService.currentUser
+    }
+
+    Boolean canAlter(Score scoreInstance) {
+        if (scoreInstance.judge.id != currentUser().id && !currentUser().admin) {
+            render "You are not authorized to do this."
+            return false
+        } else {
+            return true
+        }
     }
 }

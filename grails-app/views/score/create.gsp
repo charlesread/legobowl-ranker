@@ -9,7 +9,7 @@
 
 <body>
 
-<g:render template="nav" />
+<g:render template="nav"/>
 
 <div id="create-score" class="content scaffold-create" role="main">
     <h1><g:message code="default.create.label" args="[entityName]"/></h1>
@@ -24,7 +24,7 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form action="save">
+    <g:form action="save" onsubmit="return contestantSelected()">
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>

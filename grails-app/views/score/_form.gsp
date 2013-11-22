@@ -10,6 +10,9 @@
         padding: 5px;
         background-color: #eee;
         margin: 15px;
+        -webkit-box-shadow: 0 8px 6px -6px #666;
+        -moz-box-shadow: 0 8px 6px -6px #666;
+        box-shadow: 0 8px 6px -6px #666;
     }
 
     .blockWrapper {
@@ -43,6 +46,8 @@
 
 </style>
 
+
+
 <table>
 <tr>
 <td>
@@ -50,17 +55,26 @@
         <g:message code="score.contestant.label" default="Contestant"/>
         <span class="required-indicator">*</span>
     </label>
-    <g:select id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
-              required="" value="${scoreInstance?.contestant?.id}" class="many-to-one"/>
+    <g:select noSelection="['':'---select a contestant---']" id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
+               value="${scoreInstance?.contestant?.id}" class="many-to-one"/>
 </td>
-<td>
-    <label for="judge">
+    <sec:ifNotGranted roles="ROLE_ADMIN">
+        <input type="hidden" name="judge.id" value="<sec:loggedInUserInfo field='id' />" />
+
+    </sec:ifNotGranted>
+
+
+    <sec:ifAnyGranted roles="ROLE_ADMIN">
+        <td>
+        <label for="judge">
         <g:message code="score.judge.label" default="Judge"/>
         <span class="required-indicator">*</span>
-    </label>
-    <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list()}" optionKey="id" required=""
+        </label>
+        <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list()}" optionKey="id" required=""
               value="${scoreInstance?.judge?.id}" class="many-to-one"/>
-</td>
+        </td>
+    </sec:ifAnyGranted>
+
 </tr>
 </table>
 

@@ -1,7 +1,9 @@
 package com.charlesread
 
+import grails.plugin.springsecurity.annotation.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
+@Secured(['ROLE_ADMIN'])
 class AppUserAppRoleController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

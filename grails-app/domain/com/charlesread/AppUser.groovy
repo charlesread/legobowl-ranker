@@ -8,6 +8,8 @@ class AppUser {
 
 	String username
 	String password = '123'
+    String firstName
+    String lastName
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
@@ -45,6 +47,10 @@ class AppUser {
 
     String toString() {
         "$username"
+    }
+
+    String fullName() {
+        "$firstName $lastName"
     }
 
     Boolean isAdmin() {

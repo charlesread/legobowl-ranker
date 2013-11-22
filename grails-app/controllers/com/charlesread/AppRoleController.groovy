@@ -3,7 +3,7 @@ package com.charlesread
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugin.springsecurity.annotation.Secured
 
-//@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN'])
 class AppRoleController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

@@ -5,36 +5,36 @@ class Score {
     AppUser judge
     Contestant contestant
 
-    Integer a11
-    Integer a12
-    Integer a13
-    Integer a21
-    Integer a22
-    Integer a23
-    Integer a31
-    Integer a32
-    Integer a33
+    Integer a11 = 0
+    Integer a12 = 0
+    Integer a13 = 0
+    Integer a21 = 0
+    Integer a22 = 0
+    Integer a23 = 0
+    Integer a31 = 0
+    Integer a32 = 0
+    Integer a33 = 0
 
-    Integer b11
-    Integer b12
-    Integer b13
-    Integer b14
-    Integer b21
-    Integer b22
-    Integer b23
-    Integer b31
-    Integer b32
-    Integer b33
+    Integer b11 = 0
+    Integer b12 = 0
+    Integer b13 = 0
+    Integer b14 = 0
+    Integer b21 = 0
+    Integer b22 = 0
+    Integer b23 = 0
+    Integer b31 = 0
+    Integer b32 = 0
+    Integer b33 = 0
 
-    Integer c11
-    Integer c12
-    Integer c13
-    Integer c21
-    Integer c22
-    Integer c23
-    Integer c31
-    Integer c32
-    Integer c33
+    Integer c11 = 0
+    Integer c12 = 0
+    Integer c13 = 0
+    Integer c21 = 0
+    Integer c22 = 0
+    Integer c23 = 0
+    Integer c31 = 0
+    Integer c32 = 0
+    Integer c33 = 0
 
     Float agg_a
     Float agg_b

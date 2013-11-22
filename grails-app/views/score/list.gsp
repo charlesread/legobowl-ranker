@@ -60,9 +60,9 @@
         </tbody>
     </table>
 
-    <div class="pagination">
-        <g:paginate total="${scoreInstanceTotal}"/>
-    </div>
+    %{--<div class="pagination">--}%
+        %{--<g:paginate total="${scoreInstanceTotal}"/>--}%
+    %{--</div>--}%
 </div>
 </body>
 </html>
