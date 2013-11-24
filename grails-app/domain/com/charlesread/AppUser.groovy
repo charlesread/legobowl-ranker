@@ -14,6 +14,7 @@ class AppUser {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+    CriteriaGroup criteriaGroup
 
 	static transients = ['springSecurityService', 'admin']
 

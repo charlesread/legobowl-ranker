@@ -59,6 +59,10 @@
         </td>
     </tr>
     <tr>
+        <td>Criteria Group</td>
+        <td><g:select name="criteriaGroup.id" from="${com.charlesread.CriteriaGroup.list()}" optionKey="id" value="${appUserInstance?.criteriaGroup?.id}" class="many-to-many" /> </td>
+    </tr>
+    <tr>
         <td>
             <g:message code="appUser.accountExpired.label" default="Account Expired" />
         </td>

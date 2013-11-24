@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 %{--<g:set var="entityName" value="${message(code: 'linkerLink.label', default: 'link')}" />--}%
-<title><g:layoutTitle default="Grails"/></title>
+<title>LEGO BOWL - <g:layoutTitle default="Grails"/></title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <g:javascript src="lib.js"/>
 <g:layoutHead/>
@@ -30,20 +30,27 @@
     	<span class="title">LEGO BOWL</span>
         <span class="comment">making ranking easy</span>
     </div>
-
+    <sec:ifLoggedIn>
     <div class="nav" role="navigation">
         <ul>
             <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_USER">
-            <li><a class="home" href="${createLink(uri: '/')}">home</a></li>
-            <li><g:link controller="score" action="list">scores</g:link></li>
-            <sec:ifAnyGranted roles="ROLE_ADMIN">
-                %{--<li><g:link controller="criterion" action="list">criteria</g:link></li>--}%
-                <li><g:link controller="contestant" action="list">contestants</g:link></li>
-                <li><g:link controller="appUser" action="list">users (and judges)</g:link></li>
-            </sec:ifAnyGranted>
+            %{--<li><a class="home" href="${createLink(uri: '/')}">home</a></li>--}%
+            %{--<li><g:link controller="scoreValues" action="list">core values scores</g:link></li>--}%
+            %{--<li><g:link controller="scoreProject" action="list">project scores</g:link></li>--}%
+            %{--<li><g:link controller="scoreTechnical" action="list">technical scores</g:link></li>--}%
+            <g:scoreLinks></g:scoreLinks>
+            <li><g:link controller="aggregation" action="index">score aggregation</g:link></li>
             </sec:ifAnyGranted>
         </ul>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <ul style="margin-top: 15px;">
+                %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
+                <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
+                <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
+            </ul>
+        </sec:ifAnyGranted>
     </div>
+    </sec:ifLoggedIn>
 
     <g:layoutBody/>
     

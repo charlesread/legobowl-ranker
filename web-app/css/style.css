@@ -66,7 +66,7 @@ html, body {
     border-radius: 5px;
     padding: 10px;
     border: 0px;
-    color: #fff;
+    color: #555;
 }
 
 #roles {
@@ -107,7 +107,7 @@ html, body {
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
-    background-color:#7CC36B;
+    background-color:#93D483; /*  FFDC7A     268DFF  */
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -126,7 +126,7 @@ html, body {
 
 
 .nav ul li a:hover {
-	background-color:#93D483;
+	background-color:#7CC36B;
 }
 .subnav ul li a:hover {
     background-color:#444;
@@ -145,7 +145,7 @@ html, body {
 
 input[type=submit], input[type=button], .edit {
 
-    background-color:#268DFF;
+    background-color:#268DFF; /*  FFDC7A     268DFF  */
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -414,4 +414,68 @@ table.form tr td:nth-child(2) {
 
 .logintable td {
     text-align: center;
+}
+
+
+
+tr.radiorow td {
+    text-align: center;
+}
+
+.criterionBlock {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #eee;
+    margin: 15px;
+    -webkit-box-shadow: 0 8px 6px -6px #666;
+    -moz-box-shadow: 0 8px 6px -6px #666;
+    box-shadow: 0 8px 6px -6px #666;
+}
+
+.blockWrapper {
+    width: 900px;
+    border-radius: 5px;
+    background-color: #999;
+    padding: 10px;
+    margin: 15px 0 15px 0;
+}
+
+.blockWrapper span:first-child {
+    color: #fff;
+}
+
+div.blockWrapper span:first-child {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table.criterionTable tr:first-child td:first-child {
+    font-weight: bold;
+}
+
+table.criterionTable tr:first-child td:nth-child(2) {
+    font-size: 12px;
+    font-style: italic;
+
+}
+
+table.criterionTable tr:nth-child(2) td {
+    font-size: 14px;
+}
+
+.nav ul li a.adminlinks {
+    background-color: #F04646;
+}
+
+input.roundedOne[type=radio] {
+    display: none;
+}
+input.roundedOne[type=radio] + span {
+    display: inline-block;
+    border-radius:5px;
+    padding: 5px;
+}
+input.roundedOne[type=radio]:checked + span {
+    background-color: #268DFF;
+    color: #fff;
 }

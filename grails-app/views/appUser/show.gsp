@@ -40,6 +40,14 @@
         </tr>
         <tr>
             <td>
+                <g:message code="appUser.username.label" default="Criteria Group" />
+            </td>
+            <td>
+                <g:fieldValue bean="${appUserInstance}" field="criteriaGroup" />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <g:message code="appUser.accountExpired.label" default="Account Expired" />
             </td>
             <td>
