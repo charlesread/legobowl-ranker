@@ -104,4 +104,9 @@ class LegoRankTagLib {
         }
     }
 
+    def actionSubmitLink = {attr, body ->
+        out << "<input type='hidden' name='_action_${attr.action}' />"
+        out << "<a style='margin-left:5px;' class='${attr.class}' onclick='${attr.onclick}'>${attr.value}</a>"
+    }
+
 }

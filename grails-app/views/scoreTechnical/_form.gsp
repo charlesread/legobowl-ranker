@@ -1,6 +1,6 @@
 <%@ page import="com.charlesread.ScoreTechnical" %>
 
-<table>
+<table class="scoreInfo">
     <tr>
         <td>
             <label for="contestant">
@@ -49,4 +49,9 @@
     <g:criterionBlock color="#DBEFFF" code="c31" name="s31" criterion="${scoreTechnicalInstance.s31}"></g:criterionBlock>
     <g:criterionBlock color="#DBEFFF" code="c32" name="s32" criterion="${scoreTechnicalInstance.s32}"></g:criterionBlock>
     <g:criterionBlock color="#DBEFFF" code="c33" name="s33" criterion="${scoreTechnicalInstance.s33}"></g:criterionBlock>
+</div>
+
+<div class="blockWrapper">
+    <span>Comments</span>
+    <div><g:textArea class="scoreComment" name="scoreComment" value="${scoreTechnicalInstance?.scoreComment}" /></div>
 </div>

@@ -17,6 +17,18 @@
         return true
     }
 
+    function submitForm() {
+        document.forms[0].submit();
+    }
+
+    function deleteConfirm() {
+        if (confirm("You sure about that?")) {
+            submitForm();
+        } else {
+            return false;
+        }
+    }
+
     $(document).ready(function(){
         $("#password").focus(function(){
             $("#password").val("");

@@ -14,7 +14,11 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-            <table>
+            <table class="list">
+                <thead>
+                    <th><a href="">Criterion</a></th>
+                    <th><a href="">Value</a></th>
+                </thead>
                 <tr>
                     <td>
                         <g:message code="score.b11.label" default="b11" />
@@ -133,9 +137,11 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${scoreProjectInstance?.id}" />
 					<g:link class="edit" action="edit" id="${scoreProjectInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+					%{--<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
+                    <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />
+                </fieldset>
 			</g:form>
+        %{--<g:pdfLink url="/scoreProject/show/${scoreProjectInstance?.id}">PDF View</g:pdfLink>--}%
 		</div>
 	</body>
 </html>

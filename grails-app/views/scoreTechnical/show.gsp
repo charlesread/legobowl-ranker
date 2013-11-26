@@ -14,7 +14,11 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-            <table>
+            <table class="list">
+                <thead>
+                <th><a href="">Criterion</a></th>
+                <th><a href="">Value</a></th>
+                </thead>
                 <tr>
                     <td>
                         <g:message code="score.c11.label" default="c11" />
@@ -125,8 +129,9 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${scoreTechnicalInstance?.id}" />
 					<g:link class="edit" action="edit" id="${scoreTechnicalInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+					%{--<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
+                    <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />
+                </fieldset>
 			</g:form>
 		</div>
 	</body>

@@ -1,6 +1,6 @@
 <%@ page import="com.charlesread.ScoreProject" %>
 
-<table>
+<table class="scoreInfo">
     <tr>
         <td>
             <label for="contestant">
@@ -50,4 +50,9 @@
     <g:criterionBlock color="#FFFFC0" code="b31" name="s31" criterion="${scoreProjectInstance.s31}"></g:criterionBlock>
     <g:criterionBlock color="#FFFFC0" code="b32" name="s32" criterion="${scoreProjectInstance.s32}"></g:criterionBlock>
     <g:criterionBlock color="#FFFFC0" code="b33" name="s33" criterion="${scoreProjectInstance.s33}"></g:criterionBlock>
+</div>
+
+<div class="blockWrapper">
+    <span>Comments</span>
+    <div><g:textArea class="scoreComment" name="scoreComment" value="${scoreProjectInstance?.scoreComment}" /></div>
 </div>

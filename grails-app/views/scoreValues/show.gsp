@@ -14,7 +14,11 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-            <table>
+            <table class="list">
+                <thead>
+                <th><a href="">Criterion</a></th>
+                <th><a href="">Value</a></th>
+                </thead>
                 <tr>
                     <td>
                         <g:message code="score.a11.label" default="A11" />
@@ -120,13 +124,18 @@
                         <g:fieldValue bean="${scoreValuesInstance}" field="agg" />
                     </td>
                 </tr>
+
             </table>
 			<g:form>
 				<fieldset class="buttons">
+                    %{--<g:hiddenField name="_action_delete" value="delete"/>--}%
 					<g:hiddenField name="id" value="${scoreValuesInstance?.id}" />
-					<g:link class="edit" action="edit" id="${scoreValuesInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+					<g:link class="" class="edit" action="edit" id="${scoreValuesInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                    %{--<a class="blueButton" onclick="return deleteConfirm()">delete</a>--}%
+                    %{--<g:link onclick="return deleteConfirm()">delete</g:link>--}%
+					%{--<g:actionSubmit style="-webkit-appearance: none;appearance: none;-moz-appearance:none;" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
+                    <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />
+                </fieldset>
 			</g:form>
 		</div>
 	</body>

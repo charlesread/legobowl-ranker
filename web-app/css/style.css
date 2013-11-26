@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
+
 html, body {
 	margin:0px;
 	background-color:#4c4c4c;
@@ -143,7 +144,7 @@ html, body {
 	padding-top:100px;
 }
 
-input[type=submit], input[type=button], .edit {
+input[type=submit], input[type=button], .edit, .blueButton {
 
     background-color:#268DFF; /*  FFDC7A     268DFF  */
     display: inline-block;
@@ -156,6 +157,9 @@ input[type=submit], input[type=button], .edit {
     padding: 10px;
     border: 0px;
     color: #fff;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance:none;
 
 }
 
@@ -247,6 +251,19 @@ h1 {
     -webkit-box-shadow: 0 8px 6px -6px #111;
     -moz-box-shadow: 0 8px 6px -6px #111;
     box-shadow: 0 8px 6px -6px #111;
+    margin-left: 15px;
+}
+
+table.list tbody tr {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+
+}
+
+table.list tbody tr:hover {
+    background-color: #BAE3FF;
 }
 
 .list thead th, .list tbody td {
@@ -268,6 +285,10 @@ h1 {
     overflow: hidden;
 }
 
+.partagg {
+    border-top: 1px solid #000;
+}
+
 .list tbody tr:last-child td:first-child {
     border-bottom-left-radius: 5px;
 }
@@ -287,12 +308,22 @@ h1 {
 }
 
 .list tbody tr:nth-child(2n) {
-	background-color: #aaa;
+    background-color: #aaa;
 }
 
 .list tbody tr:nth-child(2n+1) {
     background-color: #999;
 }
+
+/*.list tbody tr:nth-child(2n):not(.areaagg, .partagg) {*/
+	/*background-color: #aaa;*/
+/*}*/
+
+/*.list tbody tr:nth-child(2n+1):not(.areaagg, .partagg) {*/
+    /*background-color: #999;*/
+/*}*/
+
+
 
 input[type=text], input[type=password], textarea {
     -webkit-transition: all 0.30s ease-in-out;
@@ -308,7 +339,6 @@ input[type=text], input[type=password], textarea {
     font-size: 14px;
     background-color: #666;
     color: #eee;
-    width:450px;
 
 }
 
@@ -437,7 +467,8 @@ tr.radiorow td {
     border-radius: 5px;
     background-color: #999;
     padding: 10px;
-    margin: 15px 0 15px 0;
+    margin-top: 20px;
+    /*margin: 15px 0 15px 0;*/
 }
 
 .blockWrapper span:first-child {
@@ -479,3 +510,15 @@ input.roundedOne[type=radio]:checked + span {
     background-color: #268DFF;
     color: #fff;
 }
+
+.scoreComment {
+    width: 870px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+.scoreInfo {
+    color: #fff;
+    font-weight: bold;
+}
+

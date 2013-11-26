@@ -134,4 +134,5 @@ class ScoreProjectController {
         render(view: 'aggregate', model: [aggregates: out])
 
     }
+
 }

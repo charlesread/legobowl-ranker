@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException
 @Secured(['ROLE_ADMIN'])
 class ContestantController {
 
+    def aggregationService
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -100,5 +102,10 @@ class ContestantController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'contestant.label', default: 'Contestant'), id])
             redirect(action: "show", id: id)
         }
+    }
+
+    def scores() {
+        Contestant contestant = Contestant.get(params.id)
+        [totals: aggregationService.aggregate(contestant), values: ScoreValues.findAllByContestant(contestant), projects: ScoreProject.findAllByContestant(contestant), technicals: ScoreTechnical.findAllByContestant(contestant)]
     }
 }

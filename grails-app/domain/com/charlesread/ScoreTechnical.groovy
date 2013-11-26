@@ -17,8 +17,10 @@ class ScoreTechnical {
     Float agg_s2
     Float agg_s3
     Float agg
+    String scoreComment
 
     static constraints = {
+        scoreComment(nullable: true)
     }
 
     static mapping = {
@@ -27,5 +29,6 @@ class ScoreTechnical {
         agg_s2 formula: "(s21 + s22 + s23) / 3"
         agg_s3 formula: "(s31 + s32 + s33) / 3"
         agg formula: "(s11 + s12 + s13 + s21 + s22 + s23 + s31 + s32 + s33) / 9"
+        scoreComment sqlType: 'clob'
     }
 }

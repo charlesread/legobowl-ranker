@@ -21,6 +21,9 @@
 
             <g:sortableColumn property="name" title="${message(code: 'contestant.name.label', default: 'Name')}"/>
 
+            <th></th>
+            <th></th>
+
         </tr>
         </thead>
         <tbody>
@@ -29,6 +32,10 @@
 
                 <td><g:link action="show"
                             id="${contestantInstance.id}">${fieldValue(bean: contestantInstance, field: "name")}</g:link></td>
+
+                <td><a href="/legobowl/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Show ${fieldValue(bean: contestantInstance, field: "name")} Scores</a></td>
+
+                <td><a href="/legobowl/aggregation/contestantReport/${fieldValue(bean: contestantInstance, field: "id")}">${fieldValue(bean: contestantInstance, field: "name")} Score Report (PDF)</a> </td>
 
             </tr>
         </g:each>

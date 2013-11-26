@@ -20,7 +20,7 @@
 
                     <g:sortableColumn property="contestant" title="Contestant"/>
 
-                    <g:sortableColumn property="judge" title="Judge"/>
+                    <g:sortableColumn property="judge.username" title="Judge"/>
 
                     <g:sortableColumn property="agg_s1" title="${message(code: 'score.agg_a1.label')}"/>
 

@@ -60,6 +60,9 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
+        //compile ":pdf:0.6"
+        //runtime 'org.springframework:spring-test:3.2.5.RELEASE'
+        compile ":rendering:0.4.4"
         compile ':spring-security-core:2.0-RC2'
         //compile ":spring-security-ldap:2.0-RC2"
     }

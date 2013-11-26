@@ -32,10 +32,10 @@
 <div id='login'>
     <form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 
-			<input type='text' class='nonpad' name='j_username' id='username' placeholder="username"/>
+			<input type='text' class='nonpad' name='j_username' id='username' placeholder="username" autocomplete="off"/>
             <input type='password' class='nonpad' name='j_password' id='password' placeholder="password"/>
             <input style="margin-top: 10px;" type='submit' id="submit" value='let me in!'/>
-            <br>
+            %{--<a style="margin-top: 10px;" onclick="submitForm()" class="blueButton">let me in!</a>--}%
             %{--<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>/>--}%
             %{--<label style="font-size: 10px; color: #999" for='remember_me'>don't forget me</label>--}%
 
