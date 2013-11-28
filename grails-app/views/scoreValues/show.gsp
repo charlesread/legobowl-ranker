@@ -127,7 +127,8 @@
 
             </table>
 			<g:form>
-				<fieldset class="buttons">
+                <div class="buttons">
+				%{--<fieldset class="buttons">--}%
                     %{--<g:hiddenField name="_action_delete" value="delete"/>--}%
 					<g:hiddenField name="id" value="${scoreValuesInstance?.id}" />
 					<g:link class="" class="edit" action="edit" id="${scoreValuesInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
@@ -135,7 +136,8 @@
                     %{--<g:link onclick="return deleteConfirm()">delete</g:link>--}%
 					%{--<g:actionSubmit style="-webkit-appearance: none;appearance: none;-moz-appearance:none;" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
                     <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />
-                </fieldset>
+                %{--</fieldset>--}%
+                </div>
 			</g:form>
 		</div>
 	</body>

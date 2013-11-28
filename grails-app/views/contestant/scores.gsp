@@ -15,7 +15,7 @@
     }
     td {
         vertical-align: top;
-        padding: 20px;
+        /*padding: 20px;*/
     }
     .criteria {
         color: #fff;
@@ -23,8 +23,13 @@
         font-weight: bold;
     }
     .overall {
-        margin:20px;
+        /*margin:20px;*/
+        margin-bottom: 20px;
     }
+    .scores {
+        width: 900px;
+    }
+
     </style>
     <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'contestant.label', default: 'Contestant')}"/>

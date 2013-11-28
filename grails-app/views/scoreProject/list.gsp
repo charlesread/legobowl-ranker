@@ -39,7 +39,7 @@
                         <td><g:link action="show"
                                     id="${scoreProjectInstance.id}">${fieldValue(bean: scoreProjectInstance, field: "contestant")}</g:link></td>
 
-                        <td>${fieldValue(bean: scoreProjectInstance, field: "judge")}</td>
+                        <td>${scoreProjectInstance.judge.fullName()}</td>
 
                         <td>${fieldValue(bean: scoreProjectInstance, field: "agg_s1")}</td>
 

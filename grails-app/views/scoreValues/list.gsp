@@ -17,7 +17,6 @@
             <table class="list">
                 <thead>
                 <tr>
-
                     <g:sortableColumn property="contestant" title="Contestant"/>
 
                     <g:sortableColumn property="judge.username" title="Judge"/>
@@ -30,14 +29,6 @@
 
                     <g:sortableColumn property="agg" title="${message(code: 'score.agg_a.label')}"/>
 
-                    %{--<g:sortableColumn property="a13" title="${message(code: 'score.a13.label', default: 'A13')}"/>--}%
-
-                    %{--<g:sortableColumn property="a21" title="${message(code: 'score.a21.label', default: 'A21')}"/>--}%
-
-                    %{--<g:sortableColumn property="a22" title="${message(code: 'score.a22.label', default: 'A22')}"/>--}%
-
-                    %{--<g:sortableColumn property="a23" title="${message(code: 'score.a23.label', default: 'A23')}"/>--}%
-
                 </tr>
                 </thead>
                 <tbody>
@@ -47,7 +38,7 @@
                         <td><g:link action="show"
                                     id="${scoreValuesInstance.id}">${fieldValue(bean: scoreValuesInstance, field: "contestant")}</g:link></td>
 
-                        <td>${fieldValue(bean: scoreValuesInstance, field: "judge")}</td>
+                        <td>${scoreValuesInstance.judge.fullName()}</td>
 
                         <td>${fieldValue(bean: scoreValuesInstance, field: "agg_s1")}</td>
 
@@ -56,15 +47,6 @@
                         <td>${fieldValue(bean: scoreValuesInstance, field: "agg_s3")}</td>
 
                         <td>${fieldValue(bean: scoreValuesInstance, field: "agg")}</td>
-
-                        %{--<td>${fieldValue(bean: scoreValuesInstance, field: "a13")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreValuesInstance, field: "a21")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreValuesInstance, field: "a22")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreValuesInstance, field: "a23")}</td>--}%
-
                     </tr>
                 </g:each>
                 </tbody>

@@ -2,11 +2,13 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: contestantInstance, field: 'name', 'error')} ">
-    <label for="name">
-        <g:message code="contestant.name.label" default="Name"/>
-
-    </label>
-    <g:textField name="name" value="${contestantInstance?.name}"/>
-</div>
-
+<table class="show">
+    <tr>
+        <td>
+            <g:message code="contestant.name.label" default="Name"/>
+        </td>
+        <td>
+            <g:textField name="name" value="${contestantInstance?.name}"/>
+        </td>
+    </tr>
+</table>

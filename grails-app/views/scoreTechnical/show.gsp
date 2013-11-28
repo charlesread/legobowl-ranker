@@ -126,12 +126,12 @@
                 </tr>
             </table>
 			<g:form>
-				<fieldset class="buttons">
+				<div class="buttons">
 					<g:hiddenField name="id" value="${scoreTechnicalInstance?.id}" />
 					<g:link class="edit" action="edit" id="${scoreTechnicalInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					%{--<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
                     <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />
-                </fieldset>
+                </div>
 			</g:form>
 		</div>
 	</body>

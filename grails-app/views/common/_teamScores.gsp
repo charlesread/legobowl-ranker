@@ -22,9 +22,9 @@
     </tr>
     </tbody>
 </table>
-<table class="scores">
+<table class="scores" >
 <tr>
-<td>
+<td >
     <span class="criteria">Core Values Criteria</span>
     <g:each in="${values}" var="value" status="i">
         <div class="scoreWrapper">
@@ -143,7 +143,7 @@
         </div>
     </g:each>
 </td>
-<td>
+<td >
     <span class="criteria">Project Criteria</span>
     <g:each in="${projects}" var="project" status="i">
         <div class="scoreWrapper">
@@ -269,7 +269,7 @@
         </div>
     </g:each>
 </td>
-<td>
+<td >
     <span class="criteria">Technical Criteria</span>
     <g:each in="${technicals}" var="technical" status="i">
         <div class="scoreWrapper">
