@@ -23,6 +23,9 @@
         background-color: #268DFF;
         color: #fff;
     }
+    span {
+        padding: 5px;
+    }
     .demoBlock {
         padding: 5px;
         margin-bottom: 10px;
@@ -30,7 +33,79 @@
         border-radius: 5px;
     }
 
+    input[type="range"]{
+        -webkit-appearance:none !important;
+        height: 5px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: #333;
+        text-decoration: none;
+        border: none;
+        border: 0px;
+        outline: none;
+        outline: 0px;
+
+    }
+    input[type="range"] img {
+        border: none;
+        border: 0px;
+        outline: none;
+        outline: 0px;
+    }
+
+
+    input[type="range"]::-webkit-slider-thumb{
+        border: none;
+        border: 0px;
+        outline: none;
+        outline: 0px;
+        text-decoration: none;
+        -webkit-appearance:none;
+        -moz-apperance:none;
+        width:30px;
+        height:30px;
+        /*background-color: red;*/
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        -ms-border-radius:5px;
+        -o-border-radius:5px;
+        border-radius:5px;
+        background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(0.49, #dddddd), color-stop(0.51, #d1d1d1), color-stop(1, #a1a1a1));
+        background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(0.49, #dddddd), color-stop(0.51, #d1d1d1), color-stop(1, #a1a1a1));
+
+    }
+
 </style>
+
+<table class="scoreInfo">
+    <tr>
+        <td>
+            <label for="contestant">
+                <g:message code="score.contestant.label" default="Contestant"/>
+                <span class="required-indicator">*</span>
+            </label>
+            <g:select noSelection="['':'---select a contestant---']" id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
+                      value="${scoreTechnicalInstance?.contestant?.id}" class="many-to-one"/>
+        </td>
+        <sec:ifNotGranted roles="ROLE_ADMIN">
+            <input type="hidden" name="judge.id" value="<sec:loggedInUserInfo field='id' />" />
+
+        </sec:ifNotGranted>
+
+
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <td>
+                <label for="judge">
+                    <g:message code="score.judge.label" default="Judge"/>
+                    <span class="required-indicator">*</span>
+                </label>
+                <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list()}" optionKey="id" required=""
+                          value="${scoreTechnicalInstance?.judge?.id}" class="many-to-one"/>
+            </td>
+        </sec:ifAnyGranted>
+
+    </tr>
+</table>
 
 <table class="outerTable">
     <tr>
@@ -45,10 +120,12 @@
         </td>
         <td>
             <g:tripleCheckboxLinked name="s8" points="30" />
-            <g:singleRange name="s11" />
+            <g:singleCheckbox name="s9" points="25" />
+            <g:singleCheckBoxSingleRangeLinked name="s10" factor="5" max="13" />
+            <g:singleRange name="s11" factor="2" max="16"/>
         </td>
         <td>
-            <g:singleCheckbox name="s1" />
+asda
         </td>
     </tr>
 </table>
