@@ -14,6 +14,7 @@ class RobotDemoController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        params.sort = params.sort ?: 'contestant'
         [robotDemoInstanceList: RobotDemo.list(params), robotDemoInstanceTotal: RobotDemo.count()]
     }
 

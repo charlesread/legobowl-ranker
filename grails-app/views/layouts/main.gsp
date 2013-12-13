@@ -47,6 +47,7 @@
                 %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
                 <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
                 <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
+                <li><g:link class="adminlinks" controller="robotDemo" action="list">robot demonstration scores</g:link></li>
             </ul>
         </sec:ifAnyGranted>
     </div>

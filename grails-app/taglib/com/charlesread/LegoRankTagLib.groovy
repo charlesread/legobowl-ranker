@@ -195,7 +195,7 @@ class LegoRankTagLib {
         out << "<table class='innerTable' width='300'>"
         out << "<tr>"
         out << "<td width='260'>"
-        out << "<span>" + g.message(code: "robotDemo.${attr.name}.label") + " " + "<span style='font-weight:bold;' id='${attr.name}_show'>0</span>" + "</span>"
+        out << g.message(code: "robotDemo.${attr.name}.label") + " " + "<span style='font-weight:bold;' id='${attr.name}_show'>0</span>"
         out << "</td>"
         out << "<td width='40' rowspan='2'>"
         out << "<input type='hidden' name='${attr.name}' id='${attr.name}_val' value='0' />"
@@ -204,7 +204,7 @@ class LegoRankTagLib {
         out << "</tr>"
         out << "<tr>"
         out << "<td width='260'>"
-        out << "<input style='width:230px;' type='range' id='${attr.name}' value='${attr?.value ?: 0}' min='${attr?.min ?: 0}' max='${attr?.max ?: 10}' step='${attr?.step ?: 1}' onchange='doSingleRange(this,${attr.factor})' />"
+        out << "<input style='width:230px;' type='range' id='${attr.name}' value='${attr?.value ?: 0}' min='${attr?.min ?: 0}' max='${attr?.max ?: 10}' step='${attr?.step ?: 1}' onchange='doSingleRange(this,${attr.factor},${attr.offset ?: 0})' />"
         out << "</td>"
         out << "</tr>"
         out << "</table>"
@@ -238,6 +238,32 @@ class LegoRankTagLib {
         out << "<tr>"
         out << "<td width='260'>"
         out << "<input style='width:230px;' type='range' id='${attr.name}' value='${attr?.value ?: 0}' min='${attr?.min ?: 0}' max='${attr?.max ?: 10}' step='${attr?.step ?: 1}' onchange='doSingleRange(this,${attr.factor})' />"
+        out << "</td>"
+        out << "</tr>"
+        out << "</table>"
+        out << "</div>"
+    }
+
+    def radioGroup = {attr, body ->
+
+        def values = attr.values.tokenize(',')
+
+        out << "<div class='demoBlock'>"
+        out << "<table class='innerTable' width='300'>"
+        out << "<tr>"
+        out << "<td width='200'>"
+        out << g.message(code: "robotDemo.${attr.name}.label")
+        out << "<input type='hidden' name='${attr.name}' id='${attr.name}_val' value='0' />"
+        out << "</td>"
+        out << "<td width='100'>"
+
+        values.size().times {
+            out << "<input type='radio' name='${attr.name}_radio' id='${attr.name}' onchange='doRadioGroup(this,${values[it]})' />" + g.message(code: "robotDemo.${attr.name}.${it+1}.label") + "<br>"
+        }
+
+        out << "</td>"
+        out << "<td width='40'>"
+        out << "<span id='${attr.name}_show'>0</span>"
         out << "</td>"
         out << "</tr>"
         out << "</table>"

@@ -65,11 +65,23 @@
         }
     }
 
-    function doSingleRange(e, mult) {
+    function doSingleRange(e, mult, offset) {
         var id = e.id;
+        offset = typeof offset !== 'undefined' ? offset : 0;
         $("#" + id + "_show").html(e.value);
-        $("#" + id + "_show_mult").html(e.value * mult);
-        $("#" + id + "_val").val(e.value * mult);
+        e.value < offset ? 0 : $("#" + id + "_show_mult").html((e.value - offset) * mult);
+        $("#" + id + "_val").val((e.value - offset) * mult);
+    }
+
+    function doRadioGroup(e, val) {
+        var id = e.id;
+        if (e.checked) {
+            $("#" + id + "_show").html(val);
+            $("#" + id + "_val").val(val);
+        } else {
+            $("#" + id + "_show").html(0);
+            $("#" + id + "_val").val(0);
+        }
     }
 
     $(document).ready(function(){

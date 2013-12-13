@@ -8,7 +8,7 @@
         width: 300px;
     }
     .innerTable {
-
+        font-size: 12px;
     }
 
     input[type=checkbox] {
@@ -109,7 +109,7 @@
 
 <table class="outerTable">
     <tr>
-        <td>
+        <td style="vertical-align: top;">
             <g:singleCheckbox name="s1" points="20" />
             <g:doubleCheckboxLinked name="s2" points="30" />
             <g:doubleCheckboxLinked name="s3" points="30" />
@@ -118,14 +118,27 @@
             <g:singleCheckbox name="s6" points="30" />
             <g:singleCheckbox name="s7" points="20" />
         </td>
-        <td>
+        <td style="vertical-align: top;">
             <g:tripleCheckboxLinked name="s8" points="30" />
             <g:singleCheckbox name="s9" points="25" />
             <g:singleCheckBoxSingleRangeLinked name="s10" factor="5" max="13" />
             <g:singleRange name="s11" factor="2" max="16"/>
+            <g:radioGroup name="s12" values="10,16,23,31"/>
+            <g:radioGroup name="s13" values="20,30"/>
+            <g:singleRange name="s14" factor="33" max="3" offset="1"/>
         </td>
-        <td>
-asda
+        <td style="vertical-align: top;">
+            <g:singleRange name="s15" factor="15" max="3" />
+            <g:singleRange name="s16" factor="18" max="3"/>
+            <g:singleRange name="s17" factor="12" max="3"/>
+            <g:singleRange name="s18" factor="15" max="2"/>
+            <g:singleRange name="s19" factor="4" max="12"/>
+            <g:singleRange name="s20" factor="3" max="12"/>
+            <g:singleCheckbox name="s21" points="25" />
+            <g:singleRange name="s22" factor="-13" max="4"/>
+            <g:singleRange name="s23" factor="-10" max="4"/>
+            <g:singleRange name="s24" factor="-13" max="30"/>
+            <g:singleRange name="s25" factor="-5" max="30"/>
         </td>
     </tr>
 </table>
