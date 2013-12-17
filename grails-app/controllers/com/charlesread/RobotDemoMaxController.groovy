@@ -7,10 +7,14 @@ import grails.plugin.springsecurity.annotation.Secured
 class RobotDemoMaxController {
 
     def index() {
-        [data: RobotDemoMax.list()]
+        params.sort = params.sort ?: 'agg'
+        params.order = params.order ?: 'desc'
+        [data: RobotDemoMax.list(params)]
     }
 
     def presentation() {
-        [data: RobotDemoMax.list()]
+        params.sort = params.sort ?: 'agg'
+        params.order = params.order ?: 'desc'
+        [data: RobotDemoMax.list(params)]
     }
 }

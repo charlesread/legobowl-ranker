@@ -24,6 +24,8 @@
 
                         <g:sortableColumn property="agg" title="${message(code: 'robotDemo.agg.label')}" />
 
+                        <g:sortableColumn property="seqNo" title="Run" />
+
 					</tr>
 				</thead>
 				<tbody>
@@ -35,6 +37,8 @@
 						<td>${fieldValue(bean: robotDemoInstance, field: "judge")}</td>
 
                         <td>${fieldValue(bean: robotDemoInstance, field: "agg")}</td>
+
+                        <td>${fieldValue(bean: robotDemoInstance, field: "seqNo")}</td>
 					
 					</tr>
 				</g:each>

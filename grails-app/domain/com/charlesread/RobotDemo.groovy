@@ -3,6 +3,7 @@ package com.charlesread
 class RobotDemo {
     Contestant contestant
     AppUser judge
+    Integer seqNo
     Integer s1 = 0
     Integer s2 = 0
     Integer s3 = 0
@@ -30,6 +31,12 @@ class RobotDemo {
     Integer s25 = 0
     Integer agg
 
+    def beforeInsert() {
+        def c = RobotDemo.findAll("from RobotDemo a where a.seqNo = (select max(a1.seqNo) from RobotDemo a1 where a.contestant = a1.contestant) and a.contestant = :contestant",[contestant: contestant])[0]
+        println "contestant:" + c?.contestant?.name
+        seqNo = c ? c.seqNo + 1 : 1
+    }
+
     static mapping = {
         id generator: "sequence", params: [sequence: "LEGO_SEQ"]
         agg formula: "s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15 + s16 + s17 + s18 + s19 + s20 + s21 + s22 + s23 + s24 + s25"
@@ -37,5 +44,7 @@ class RobotDemo {
     }
 
     static constraints = {
+        seqNo(nullable: true)
+        agg(nullable: true, blank: true)
     }
 }

@@ -4,6 +4,10 @@ class LegoRankTagLib {
 
     def springSecurityService
 
+    def editable = {attr, body ->
+        out << "<span id='${attr.field}_span' onclick='hideSpan(\"${attr.field}\")'>${attr.bean[attr.field]}</span><input id='${attr.field}_input' style='display:none;' type='text' name='${attr.field}' value='${attr.bean[attr.field]}' onblur='hideInput(\"${attr.field}\")' />"
+    }
+
     def radioLego = {attr, body ->
         out << "<tr class='radiorow'>"
         out << "<td style='width:30px;'><input class='roundedOne' type='radio' name='${attr.name}' value='0' ${attr.val == 0 ? 'checked' : ''}  /></td>"
@@ -269,5 +273,7 @@ class LegoRankTagLib {
         out << "</table>"
         out << "</div>"
     }
+
+
 
 }

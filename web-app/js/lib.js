@@ -84,6 +84,18 @@
         }
     }
 
+    function hideSpan(e) {
+        $('#' + e + '_span').css('display','none');
+        $('#' + e + '_input').css('display','inline');
+        $('#' + e + '_input').focus();
+    }
+
+    function hideInput(e) {
+        $('#' + e + '_input').css('display','none');
+        $('#' + e + '_span').html($('#' + e + '_input').val());
+        $('#' + e + '_span').css('display','inline');
+    }
+
     $(document).ready(function(){
         $("#password").focus(function(){
             $("#password").val("");

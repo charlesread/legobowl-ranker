@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 %{--<g:set var="entityName" value="${message(code: 'linkerLink.label', default: 'link')}" />--}%
 <title>LEGO BOWL - <g:layoutTitle default="Grails"/></title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <g:javascript src="jquery-1.10.2.min.js" />
     <g:javascript src="lib.js"/>
 <g:layoutHead/>
 <r:layoutResources />

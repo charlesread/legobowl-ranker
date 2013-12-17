@@ -2,11 +2,13 @@ package com.charlesread
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugin.springsecurity.annotation.Secured
+import org.apache.commons.lang.StringEscapeUtils
 
 @Secured(['ROLE_ADMIN'])
 class AppUserController {
 
     def springSecurityService
+    def passwordEncoder
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -124,6 +126,57 @@ class AppUserController {
             AppRole currentRole = com.charlesread.AppRole.get(it)
             com.charlesread.AppUserAppRole.create(appUser, currentRole, true)
             render "Adding role: ${com.charlesread.AppRole.get(it).authority}<br>"
+        }
+    }
+
+    @Secured(['permitAll'])
+    def passwordExpired() {
+        [username: session['SPRING_SECURITY_LAST_USERNAME']]
+        //render session
+    }
+
+    @Secured(['permitAll'])
+    def updatePassword() {
+        String username = session['SPRING_SECURITY_LAST_USERNAME']
+        if (!username) {
+            println "no username"
+            flash.message = 'Sorry, an error has occurred'
+            redirect controller: 'login', action: 'auth'
+            return
+        }
+        String password = params.password
+        String newPassword = params.password_new
+        String newPassword2 = params.password_new_2
+        if (!password || !newPassword || !newPassword2 || newPassword != newPassword2) {
+            flash.message = 'please enter your current password and a valid new password'
+            render view: 'passwordExpired', model: [username: session['SPRING_SECURITY_LAST_USERNAME']]
+            return
+        }
+
+        AppUser user = AppUser.findByUsername(username)
+        if (!user) {
+            flash.message = 'user not found'
+            render view: 'passwordExpired', model: [username: session['SPRING_SECURITY_LAST_USERNAME']]
+            return
+
+        }
+        if (!passwordEncoder.isPasswordValid(user.password, password, null /*salt*/)) {
+            flash.message = 'current password is incorrect'
+            render view: 'passwordExpired', model: [username: session['SPRING_SECURITY_LAST_USERNAME']]
+            return
+        }
+
+        if (passwordEncoder.isPasswordValid(user.password, newPassword, null /*salt*/)) {
+            flash.message = 'please choose a different password from your current one'
+            render view: 'passwordExpired', model: [username: session['SPRING_SECURITY_LAST_USERNAME']]
+            return
+        }
+
+        user.password = newPassword
+        user.passwordExpired = false
+        if (user.save()) {
+            flash.message = 'password updated successfully'
+            redirect controller: 'login', action: 'auth'
         }
     }
 
