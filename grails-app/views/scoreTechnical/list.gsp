@@ -20,7 +20,7 @@
 
                     <g:sortableColumn property="contestant" title="Contestant"/>
 
-                    <g:sortableColumn property="judge.username" title="Judge"/>
+                    <g:sortableColumn property="judge.userFullName" title="Judge"/>
 
                     <g:sortableColumn property="agg_s1" title="${message(code: 'score.agg_c1.label')}"/>
 
@@ -47,7 +47,7 @@
                         <td><g:link action="show"
                                     id="${scoreTechnicalInstance.id}">${fieldValue(bean: scoreTechnicalInstance, field: "contestant")}</g:link></td>
 
-                        <td>${scoreTechnicalInstance.judge.fullName()}</td>
+                        <td>${scoreTechnicalInstance.judge.userFullName}</td>
 
                         <td>${fieldValue(bean: scoreTechnicalInstance, field: "agg_s1")}</td>
 

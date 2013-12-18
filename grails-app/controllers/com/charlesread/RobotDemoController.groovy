@@ -3,10 +3,12 @@ package com.charlesread
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_USER'])
+@Secured(['ROLE_ADMIN', 'ROLE_USER','ROLE_REFEREE'])
 class RobotDemoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+
+    def springSecurityService
 
     def index() {
         redirect(action: "list", params: params)
@@ -15,7 +17,13 @@ class RobotDemoController {
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         params.sort = params.sort ?: 'contestant'
-        [robotDemoInstanceList: RobotDemo.list(params), robotDemoInstanceTotal: RobotDemo.count()]
+        def list
+        if (springSecurityService.currentUser.admin) {
+            list = RobotDemo.list(params)
+        } else {
+            list = RobotDemo.findByJudge(springSecurityService.currentUser,params)
+        }
+        [robotDemoInstanceList: list, robotDemoInstanceTotal: RobotDemo.count()]
     }
 
     def create() {

@@ -2,7 +2,7 @@ package com.charlesread
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_USER'])
+@Secured(['ROLE_ADMIN', 'ROLE_USER', 'ROLE_JUDGE'])
 class AggregationController {
 
     def aggregationService

@@ -20,7 +20,7 @@
 
                         <g:sortableColumn property="contestant.name" title="${message(code: 'robotDemo.contestant.label')}" />
 
-                        <g:sortableColumn property="judge.username" title="${message(code: 'robotDemo.judge.label')}" />
+                        <g:sortableColumn property="judge.userFullName" title="${message(code: 'robotDemo.judge.label')}" />
 
                         <g:sortableColumn property="agg" title="${message(code: 'robotDemo.agg.label')}" />
 
@@ -34,7 +34,7 @@
 
 						<td><g:link action="show" id="${robotDemoInstance.id}">${fieldValue(bean: robotDemoInstance, field: "contestant")}</g:link></td>
 					
-						<td>${fieldValue(bean: robotDemoInstance, field: "judge")}</td>
+						<td>${robotDemoInstance.judge.userFullName}</td>
 
                         <td>${fieldValue(bean: robotDemoInstance, field: "agg")}</td>
 

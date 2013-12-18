@@ -11,11 +11,15 @@
 <head>
     <meta name="layout" content="main">
     <title></title>
+    <g:set var="entityName" value="${message(code: 'robotDemo.label', default: 'RobotDemo')}" />
 </head>
 <body>
+<g:render template="nav" contextPath="../robotDemo" />
+<h1><g:message code="robotDemo.label" args="[entityName]" /> maximums</h1>
     <table class="list">
         <thead>
             <tr>
+                <g:sortableColumn property="rank" title="Rank" />
                 <g:sortableColumn property="contestant" title="Contestant" />
                 <g:sortableColumn property="agg" title="Top Robot Demonstration Score" />
                 <g:sortableColumn property="run1" title="Run 1" />

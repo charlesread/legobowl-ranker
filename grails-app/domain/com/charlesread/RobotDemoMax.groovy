@@ -5,6 +5,7 @@ class RobotDemoMax extends RobotDemo {
     Integer run1
     Integer run2
     Integer run3
+    Integer rank
 
     static constraints = {
     }

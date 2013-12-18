@@ -10,9 +10,9 @@
 <html>
 <head>
   <title></title>
-  <script src="<g:resource dir="js" file="jquery-1.10.2.min.js" />"></script>
-  <script src="<g:resource dir="TimeCircles" file="inc/TimeCircles.js" />"></script>
-  <link rel="stylesheet" type="text/css" href="<g:resource dir="TimeCircles" file="inc/TimeCircles.css" />" />
+  %{--<script src="<g:resource dir="js" file="jquery-1.10.2.min.js" />"></script>--}%
+  %{--<script src="<g:resource dir="TimeCircles" file="inc/TimeCircles.js" />"></script>--}%
+  %{--<link rel="stylesheet" type="text/css" href="<g:resource dir="TimeCircles" file="inc/TimeCircles.css" />" />--}%
   <style>
       .textDiv_Days {
           display: none;
@@ -32,7 +32,7 @@
   </script>
 </head>
 <body>
-    <div class="countdown" data-timer="180"></div>
+    %{--<div class="countdown" data-timer="180"></div>--}%
     <table>
         <g:render template="data" />
     </table>

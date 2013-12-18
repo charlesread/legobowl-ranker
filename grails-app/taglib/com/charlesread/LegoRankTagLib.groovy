@@ -97,14 +97,22 @@ class LegoRankTagLib {
 
         Long criterionGroup = springSecurityService.currentUser.criteriaGroupId
         Boolean admin = springSecurityService.currentUser.admin
-        if (admin || criterionGroup == 123) {
+        Boolean judge = springSecurityService.currentUser.judge
+        Boolean referee = springSecurityService.currentUser.referee
+        if (admin || (criterionGroup == 123 && judge)) {
             out << "<li>${g.link(controller: "scoreValues", action: "list"){"core values scores"}}</li>"
         }
-        if (admin || criterionGroup == 122) {
+        if (admin || (criterionGroup == 122 && judge)) {
             out << "<li>${g.link(controller: "scoreProject", action: "list"){"project scores"}}</li>"
         }
-        if (admin || criterionGroup == 124) {
+        if (admin || (criterionGroup == 124 && judge)) {
             out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"technical scores"}}</li>"
+        }
+        if (admin || judge) {
+            out << "<li>${g.link(controller: "aggregation", action: "index"){"score aggregation"}}</li>"
+        }
+        if (admin || referee) {
+            out << "<li>${g.link(controller: "robotDemo", action: "list"){"robot demonstration scores"}}</li>"
         }
     }
 

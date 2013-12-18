@@ -29,7 +29,7 @@
     .demoBlock {
         padding: 5px;
         margin-bottom: 10px;
-        background-color: #555;
+        background-color: #888;
         border-radius: 5px;
     }
 

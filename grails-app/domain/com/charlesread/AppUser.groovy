@@ -13,10 +13,11 @@ class AppUser {
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
-	boolean passwordExpired
+	boolean passwordExpired = true
     CriteriaGroup criteriaGroup
+    String userFullName
 
-	static transients = ['springSecurityService', 'admin']
+	static transients = ['springSecurityService', 'admin', 'judge', 'referee', 'fullName']
 
 	static constraints = {
 		username blank: false, unique: true
@@ -26,6 +27,7 @@ class AppUser {
 	static mapping = {
 		password column: '`password`'
         id generator: "sequence", params: [sequence: "LEGO_SEQ"]
+        userFullName formula: "first_name || ' ' || last_name"
 	}
 
 	Set<AppRole> getAuthorities() {
@@ -50,11 +52,19 @@ class AppUser {
         "$username"
     }
 
-    String fullName() {
-        "$firstName $lastName"
-    }
+//    String fullName() {
+//        "$firstName $lastName"
+//    }
 
     Boolean isAdmin() {
         return SpringSecurityUtils.ifAnyGranted('ROLE_ADMIN')
+    }
+
+    Boolean isJudge() {
+        return SpringSecurityUtils.ifAnyGranted('ROLE_JUDGE')
+    }
+
+    Boolean isReferee() {
+        return SpringSecurityUtils.ifAnyGranted('ROLE_REFEREE')
     }
 }

@@ -33,13 +33,8 @@
     <sec:ifLoggedIn>
     <div class="nav" role="navigation">
         <ul>
-            <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_USER">
-            %{--<li><a class="home" href="${createLink(uri: '/')}">home</a></li>--}%
-            %{--<li><g:link controller="scoreValues" action="list">core values scores</g:link></li>--}%
-            %{--<li><g:link controller="scoreProject" action="list">project scores</g:link></li>--}%
-            %{--<li><g:link controller="scoreTechnical" action="list">technical scores</g:link></li>--}%
-            <g:scoreLinks></g:scoreLinks>
-            <li><g:link controller="aggregation" action="index">score aggregation</g:link></li>
+            <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_JUDGE,ROLE_REFEREE">
+                <g:scoreLinks></g:scoreLinks>
             </sec:ifAnyGranted>
         </ul>
         <sec:ifAnyGranted roles="ROLE_ADMIN">
@@ -47,7 +42,7 @@
                 %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
                 <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
                 <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
-                <li><g:link class="adminlinks" controller="robotDemo" action="list">robot demonstration scores</g:link></li>
+
             </ul>
         </sec:ifAnyGranted>
     </div>

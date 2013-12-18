@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import grails.plugin.springsecurity.annotation.Secured
 import grails.plugin.springsecurity.SpringSecurityUtils
 
-@Secured(['ROLE_USER','ROLE_ADMIN'])
+@Secured(['ROLE_USER','ROLE_ADMIN','ROLE_JUDGE'])
 class ScoreTechnicalController {
 
     def springSecurityService
