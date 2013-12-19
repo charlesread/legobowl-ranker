@@ -63,22 +63,25 @@
     %{--<div class="countdown" data-timer="180"></div>--}%
 <div class="countdown"></div>
 <script>
-    var clock = $('.countdown').FlipClock(4,{
+    var time = 180;
+    var clock = $('.countdown').FlipClock(time,{
         autoStart: false,
         countdown: true,
         clockFace: 'MinuteCounter'
-        //,reset: function() {alert(1)}
+        //,stop: function() {playSound();}
     });
     function start() {
         clock.start();
-        t = setTimeout('playSound()',2000);
+        setTimeout('playSound()',2000);
+        setTimeout('playSound()',(time * 1000) + 2000);
     }
     function reset() {
         clock.reset();
-        //clock.setTime(180);
+        clock.setTime(time);
     }
     function playSound() {
         document.getElementById('bell').play();
+        $("#out").append(1);
     }
 </script>
 <button onclick="start()" value="Start Countdown">Start Countdown</button>
@@ -89,6 +92,7 @@
     %{--<source src="<g:resource dir="audio" file="bell.ogg" />" type="audio/ogg">--}%
     <embed height="50" width="100" src="<g:resource dir="audio" file="bell.mp3" />">
 </audio>
+<div id="out"></div>
     <table>
         <thead>
             <th>Rank</th>
