@@ -37,7 +37,8 @@
     </script>
   <style>
     body {
-        background-color: #aaa;
+        background-color: #ccc;
+        font-family:Arial, Helvetica, sans-serif;
     }
       .textDiv_Days {
           display: none;
@@ -61,12 +62,17 @@
         width: 300px;
     }
     #timerwrapper {
-        height: 200px;
+        height: 160px;
         width: 320px;
         margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
 
+    }
+    #tablewrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 860px;
     }
     #controls table {
         margin-left: auto;
@@ -87,6 +93,65 @@
       /*.flip-clock-wrapper ul li a div.up:after {*/
           /*top:88px;*/
       /*}*/
+      .presentation {
+          border-collapse: separate;
+          border-spacing:0px;
+          font-size: 12px;
+          -webkit-box-shadow: 0 8px 6px -6px #111;
+          -moz-box-shadow: 0 8px 6px -6px #111;
+          box-shadow: 0 8px 6px -6px #111;
+      }
+    .presentation thead tr th:first-child {
+        border-top-left-radius: 5px;
+        overflow: hidden;
+    }
+    .presentation thead tr th:last-child {
+        border-top-right-radius: 5px;
+        overflow: hidden;
+    }
+    .presentation tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 5px;
+    }
+    .presentation tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 5px;
+    }
+    .presentation tbody tr:nth-child(2n) {
+        background-color: #aaa;
+    }
+
+    .presentation tbody tr:nth-child(2n+1) {
+        background-color: #999;
+    }
+      .presentation thead tr {
+          color: #fff;
+          background: #333; /* for non-css3 browsers */
+
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#444'); /* for IE */
+          background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#444)); /* for webkit browsers */
+          background: -moz-linear-gradient(top,  #333,  #444); /* for firefox 3.6+ */
+          text-align: left;
+          border-bottom: 1px solid #000 ;
+      }
+      .presentation thead tr th {
+          border-bottom: 1px solid #222 ;
+      }
+      .presentation tr th:nth-child(1) {
+          width: 50px;
+      }
+    .presentation tr th:nth-child(2) {
+        width: 300px;
+    }
+    .presentation tr th:nth-child(3) {
+        width: 150px;
+    }
+    .presentation tr th:nth-child(n+4) {
+        width: 100px;
+    }
+      .presentation th, .presentation td {
+          padding: 5px;
+      }
+
+
   </style>
 </head>
 <body>
@@ -105,7 +170,8 @@
 </div>
 <script>
 
-    var time = 180;
+    var time = 5;
+    var t;
     var clock = $('.countdown').FlipClock(time,{
         autoStart: false,
         countdown: true,
@@ -113,6 +179,7 @@
         //,stop: function() {playSound();}
     });
     function reset() {
+        clearTimeout(t);
         clock.reset();
         clock.setTime(time);
     }
@@ -120,7 +187,7 @@
         reset();
         clock.start();
         setTimeout('playSound()',2000);
-        setTimeout('playSound()',(time * 1000) + 2000);
+        t = setTimeout('playSound()',(time * 1000) + 2000);
     }
 
     function playSound() {
@@ -130,23 +197,28 @@
 </script>
 
 
+
+
+<div id="out"></div>
+<div id="tablewrapper">
+    <table class='presentation'>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Highest Score</th>
+            <th>Round 1</th>
+            <th>Round 2</th>
+            <th>Round 3</th>
+        </tr>
+        </thead>
+        <g:render template="data" />
+    </table>
+</div>
 <audio controls="controls" preload="auto" style="display: none;">
     <source src="<g:resource dir="audio" file="chimes.mp3" />" type="audio/mpeg">
     %{--<source src="<g:resource dir="audio" file="bell.ogg" />" type="audio/ogg">--}%
     %{--<embed height="50" width="100" src="<g:resource dir="audio" file="bell.mp3" />">--}%
 </audio>
-
-<div id="out"></div>
-    <table>
-        <thead>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Highest</th>
-            <th>Round 1</th>
-            <th>Round 2</th>
-            <th>Round 3</th>
-        </thead>
-        <g:render template="data" />
-    </table>
 </body>
 </html>

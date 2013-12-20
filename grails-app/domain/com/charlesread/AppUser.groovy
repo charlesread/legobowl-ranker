@@ -16,12 +16,14 @@ class AppUser {
 	boolean passwordExpired = true
     CriteriaGroup criteriaGroup
     String userFullName
+    Date lastLogin
 
 	static transients = ['springSecurityService', 'admin', 'judge', 'referee', 'fullName']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+        lastLogin nullable: true
 	}
 
 	static mapping = {
