@@ -17,4 +17,6 @@ class RobotDemoMaxController {
         params.order = params.order ?: 'desc'
         [data: RobotDemoMax.list(params)]
     }
+
+    def audio() {}
 }

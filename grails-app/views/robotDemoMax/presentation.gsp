@@ -15,6 +15,26 @@
     <link rel="stylesheet" type="text/css" href="<g:resource dir="flipclock" file="css/flipclock.css" />" />
   %{--<script src="<g:resource dir="jquery-countdown-master" file="js/jquery.countdown.min.js" />"></script>--}%
   %{--<link rel="stylesheet" type="text/css" href="<g:resource dir="jquery-countdown-master" file="css/media.css" />" />--}%
+    <script>
+    $(document).ready(function(){
+        $("#start").click(function(){
+            start();
+        });
+        $("#reset").click(function(){
+            reset();
+        });
+        $("#play").click(function(){
+            playSound();
+        });
+        $("#controls").hover(
+            function(){
+                $("#controls").animate({opacity:1});
+            },
+            function(){
+                $("#controls").animate({opacity:0});
+        });
+    });
+    </script>
   <style>
     body {
         background-color: #aaa;
@@ -40,10 +60,20 @@
     .flip-clock-wrapper {
         width: 300px;
     }
-    .countdown {
+    #timerwrapper {
+        height: 200px;
+        width: 320px;
         margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
+
+    }
+    #controls table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #controls {
+        opacity: 0;
     }
       /*.flip-clock-wrapper ul {*/
           /*width: 120px;*/
@@ -61,8 +91,20 @@
 </head>
 <body>
     %{--<div class="countdown" data-timer="180"></div>--}%
-<div class="countdown"></div>
+<div id="timerwrapper">
+    <div class="countdown"></div>
+    <div id="controls">
+        <table>
+            <tr>
+                <td><g:img id="start" dir="images" file="start.png"/> </td>
+                <td><g:img id="reset" dir="images" file="reset.png"/> </td>
+                <td><g:img id="play" dir="images" file="play.png"/> </td>
+            </tr>
+        </table>
+    </div>
+</div>
 <script>
+
     var time = 180;
     var clock = $('.countdown').FlipClock(time,{
         autoStart: false,
@@ -70,28 +112,30 @@
         clockFace: 'MinuteCounter'
         //,stop: function() {playSound();}
     });
-    function start() {
-        clock.start();
-        setTimeout('playSound()',2000);
-        setTimeout('playSound()',(time * 1000) + 2000);
-    }
     function reset() {
         clock.reset();
         clock.setTime(time);
     }
+    function start() {
+        reset();
+        clock.start();
+        setTimeout('playSound()',2000);
+        setTimeout('playSound()',(time * 1000) + 2000);
+    }
+
     function playSound() {
-        document.getElementById('bell').play();
-        $("#out").append(1);
+        $('audio')[0].load();
+        $('audio')[0].play();
     }
 </script>
-<button onclick="start()" value="Start Countdown">Start Countdown</button>
-<button onclick="reset()" value="Reset Countdown">Reset Countdown</button>
-<button onclick="playSound()" value="Reset Countdown">Ring Bell</button>
-<audio id="bell" controls>
-    <source src="<g:resource dir="audio" file="bell.mp3" />" type="audio/mpeg">
+
+
+<audio controls="controls" preload="auto" style="display: none;">
+    <source src="<g:resource dir="audio" file="chimes.mp3" />" type="audio/mpeg">
     %{--<source src="<g:resource dir="audio" file="bell.ogg" />" type="audio/ogg">--}%
-    <embed height="50" width="100" src="<g:resource dir="audio" file="bell.mp3" />">
+    %{--<embed height="50" width="100" src="<g:resource dir="audio" file="bell.mp3" />">--}%
 </audio>
+
 <div id="out"></div>
     <table>
         <thead>
