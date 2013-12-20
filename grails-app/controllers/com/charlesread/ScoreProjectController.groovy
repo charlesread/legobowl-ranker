@@ -27,7 +27,7 @@ class ScoreProjectController {
     }
 
     def create() {
-        [scoreProjectInstance: new ScoreProject(params)]
+        [scoreProjectInstance: new ScoreProject(params), currentUser: springSecurityService.currentUser]
     }
 
     def save() {

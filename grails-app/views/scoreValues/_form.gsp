@@ -22,8 +22,8 @@
                     <g:message code="score.judge.label" default="Judge"/>
                     <span class="required-indicator">*</span>
                 </label>
-                <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list()}" optionKey="id" required=""
-                          value="${scoreValuesInstance?.judge?.id}" class="many-to-one"/>
+                <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list(sort: 'userFullName')}" optionKey="id" required=""
+                          value="${scoreValuesInstance?.judge?.id ?: currentUser.id}" class="many-to-one"/>
             </td>
         </sec:ifAnyGranted>
 

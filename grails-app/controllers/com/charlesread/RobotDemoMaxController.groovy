@@ -18,5 +18,4 @@ class RobotDemoMaxController {
         [data: RobotDemoMax.list(params)]
     }
 
-    def audio() {}
 }

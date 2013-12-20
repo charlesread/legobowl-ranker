@@ -27,7 +27,7 @@ class ScoreTechnicalController {
     }
 
     def create() {
-        [scoreTechnicalInstance: new ScoreTechnical(params)]
+        [scoreTechnicalInstance: new ScoreTechnical(params), currentUser: springSecurityService.currentUser]
     }
 
     def save() {

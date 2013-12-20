@@ -27,7 +27,7 @@ class ScoreValuesController {
     }
 
     def create() {
-        [scoreValuesInstance: new ScoreValues(params)]
+        [scoreValuesInstance: new ScoreValues(params), currentUser: springSecurityService.currentUser]
     }
 
     def save() {

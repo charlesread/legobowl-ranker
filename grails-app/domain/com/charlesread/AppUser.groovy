@@ -51,7 +51,7 @@ class AppUser {
 	}
 
     String toString() {
-        "$username"
+        "$userFullName"
     }
 
 //    String fullName() {
