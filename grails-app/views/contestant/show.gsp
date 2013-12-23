@@ -16,6 +16,10 @@
         <div class="message" role="status">${flash.message}</div>
     </g:if>
     <table class="show">
+        <tr>
+            <td>Code</td>
+            <td>${contestantInstance.code}</td>
+        </tr>
                 <tr><td><g:message code="contestant.name.label" default="Name"/></td>
 
                 <td><g:fieldValue bean="${contestantInstance}" field="name"/></td>

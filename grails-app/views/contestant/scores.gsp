@@ -46,7 +46,7 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:render template="teamScores" contextPath="/common" />
+    <g:render contextPath="/common" template="teamScores" />
 </div>
 </body>
 </html>

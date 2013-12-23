@@ -2,14 +2,16 @@ package com.charlesread
 
 class Contestant {
 
-    Integer code
+    String code
     String name
 
     static constraints = {
+        code nullable: true
+        name nullable: true
     }
 
     String toString() {
-        "$name"
+        name ?: "Team ${code}"
     }
 
     static mapping = {

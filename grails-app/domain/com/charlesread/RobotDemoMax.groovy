@@ -1,11 +1,13 @@
 package com.charlesread
 
-class RobotDemoMax extends RobotDemo {
+class RobotDemoMax {
 
+    Contestant contestant
     Integer run1
     Integer run2
     Integer run3
     Integer rank
+    Integer agg
 
     static constraints = {
         run1 nullable: true
@@ -15,6 +17,7 @@ class RobotDemoMax extends RobotDemo {
 
     static mapping = {
         table 'ROBOT_DEMO_MAX'
+        id generator: "sequence", params: [sequence: "LEGO_SEQ"]
         version false
     }
 

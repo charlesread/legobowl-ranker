@@ -43,6 +43,7 @@
                 <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
                 <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
                 <li><g:link class="adminlinks" controller="room" action="list">rooms</g:link></li>
+                <li><g:link class="adminlinks" controller="queue" action="list">queue</g:link></li>
 
             </ul>
         </sec:ifAnyGranted>

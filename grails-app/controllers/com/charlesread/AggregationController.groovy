@@ -26,7 +26,7 @@ class AggregationController {
     def contestantReport() {
 
         Contestant contestant = Contestant.get(params.id)
-        renderPdf(template: "/aggregation/report", model: [totals: aggregationService.aggregate(contestant), values: ScoreValues.findAllByContestant(contestant), projects: ScoreProject.findAllByContestant(contestant), technicals: ScoreTechnical.findAllByContestant(contestant)], filename: "${contestant.name} Score Report.pdf")
+        renderPdf(template: "/aggregation/report", model: [totals: aggregationService.aggregate(contestant), values: ScoreValues.findAllByContestant(contestant), projects: ScoreProject.findAllByContestant(contestant), technicals: ScoreTechnical.findAllByContestant(contestant)], filename: "${contestant} Score Report.pdf")
 
     }
 }

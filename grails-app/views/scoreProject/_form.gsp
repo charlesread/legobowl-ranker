@@ -7,7 +7,7 @@
                 <g:message code="score.contestant.label" default="Contestant"/>
                 <span class="required-indicator">*</span>
             </label>
-            <g:select noSelection="['':'---select a contestant---']" id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list()}" optionKey="id"
+            <g:select noSelection="['':'---select a contestant---']" id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list(sort: 'code')}" optionKey="id"
                       value="${scoreProjectInstance?.contestant?.id}" class="many-to-one"/>
         </td>
         <sec:ifNotGranted roles="ROLE_ADMIN">

@@ -18,7 +18,7 @@
     <table class="list">
         <thead>
         <tr>
-
+            <g:sortableColumn property="code" title="Code" />
             <g:sortableColumn property="name" title="${message(code: 'contestant.name.label', default: 'Name')}"/>
 
             <th></th>
@@ -31,20 +31,23 @@
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td><g:link action="show"
-                            id="${contestantInstance.id}">${fieldValue(bean: contestantInstance, field: "name")}</g:link></td>
+                            id="${contestantInstance.id}">${fieldValue(bean: contestantInstance, field: "code")}</g:link></td>
 
-                <td><a href="/legobowl/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Show ${fieldValue(bean: contestantInstance, field: "name")} Scores</a></td>
+                <td><g:link action="show"
+                            id="${contestantInstance.id}">${contestantInstance}</g:link></td>
 
-                <td><a href="/legobowl/aggregation/contestantReport/${fieldValue(bean: contestantInstance, field: "id")}">${fieldValue(bean: contestantInstance, field: "name")} Score Report (PDF)</a> </td>
+                <td><a href="/legoleague/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Scores</a></td>
+
+                <td><a href="/legoleague/aggregation/contestantReport/${fieldValue(bean: contestantInstance, field: "id")}">Score Report (PDF)</a> </td>
 
             </tr>
         </g:each>
         </tbody>
     </table>
 
-    <div class="pagination">
-        <g:paginate total="${contestantInstanceTotal}"/>
-    </div>
+    %{--<div class="pagination">--}%
+        %{--<g:paginate total="${contestantInstanceTotal}"/>--}%
+    %{--</div>--}%
 </div>
 </body>
 </html>

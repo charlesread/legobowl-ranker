@@ -4,6 +4,11 @@
 
 <table class="show">
     <tr>
+        <td>Code</td>
+        <td><g:textField name="code" value="${contestantInstance.code}" /> </td>
+    </tr>
+
+    <tr>
         <td>
             <g:message code="contestant.name.label" default="Name"/>
         </td>
