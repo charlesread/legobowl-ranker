@@ -64,6 +64,7 @@ class RobotDemoController {
     }
 
     def update(Long id, Long version) {
+        println "update called"
         def robotDemoInstance = RobotDemo.get(id)
         if (!robotDemoInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'robotDemo.label', default: 'RobotDemo'), id])

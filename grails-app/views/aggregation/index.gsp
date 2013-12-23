@@ -1,3 +1,4 @@
+<%@ page import="com.charlesread.ScoreTechnical; com.charlesread.ScoreProject; com.charlesread.RoomAverages; com.charlesread.Room; com.charlesread.ScoreValues" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,11 +42,11 @@
 
                 <td>${fieldValue(bean: aggregateInstance, field: "contestant")}</td>
 
-                <td>${fieldValue(bean: aggregateInstance, field: "aggA")} (${((fieldValue(bean: aggregateInstance, field: "aggA").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
+                <td>${fieldValue(bean: aggregateInstance, field: "aggA")} (${((fieldValue(bean: aggregateInstance, field: "aggA").toFloat() / 4.toFloat())*100).round(3).toString()}%) ${RoomAverages.get(ScoreValues.findByContestant(aggregateInstance.contestant)?.judge?.roomId)}</td>
 
-                <td>${fieldValue(bean: aggregateInstance, field: "aggB")} (${((fieldValue(bean: aggregateInstance, field: "aggB").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
+                <td>${fieldValue(bean: aggregateInstance, field: "aggB")} (${((fieldValue(bean: aggregateInstance, field: "aggB").toFloat() / 4.toFloat())*100).round(3).toString()}%) ${RoomAverages.get(ScoreProject.findByContestant(aggregateInstance.contestant)?.judge?.roomId)}</td>
 
-                <td>${fieldValue(bean: aggregateInstance, field: "aggC")} (${((fieldValue(bean: aggregateInstance, field: "aggC").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
+                <td>${fieldValue(bean: aggregateInstance, field: "aggC")} (${((fieldValue(bean: aggregateInstance, field: "aggC").toFloat() / 4.toFloat())*100).round(3).toString()}%) ${RoomAverages.get(ScoreTechnical.findByContestant(aggregateInstance.contestant)?.judge?.roomId)}</td>
 
                 <td>${fieldValue(bean: aggregateInstance, field: "aggTotal")} (${((fieldValue(bean: aggregateInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
 

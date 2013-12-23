@@ -1,5 +1,5 @@
 
-<%@ page import="com.charlesread.AppUser" %>
+<%@ page import="com.charlesread.AppRole; com.charlesread.AppUser" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +19,12 @@
 					<tr>
 					
 						<g:sortableColumn property="username" title="${message(code: 'appUser.username.label', default: 'Username')}" />
+
+                        <th><a href="">Judge</a></th>
+
+                        <th><a href="">Referee</a></th>
+
+                        <g:sortableColumn property="room.name" title="Room" />
 					
 						<g:sortableColumn property="accountExpired" title="${message(code: 'appUser.accountExpired.label', default: 'Account Expired')}" />
 					
@@ -35,8 +41,14 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${appUserInstance.id}">${fieldValue(bean: appUserInstance, field: "username")}</g:link></td>
-					
-						<td><g:formatBoolean boolean="${appUserInstance.accountExpired}" /></td>
+
+                        <td>${com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_JUDGE')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_USER')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_ADMIN')) ? '&#10003;' : ''}</td>
+
+                        <td>${com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_REFEREE')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_USER')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_ADMIN')) ? '&#10003;' : ''}</td>
+
+                        <td>${appUserInstance?.room?.name}</td>
+
+                        <td><g:formatBoolean boolean="${appUserInstance.accountExpired}" /></td>
 					
 						<td><g:formatBoolean boolean="${appUserInstance.accountLocked}" /></td>
 					

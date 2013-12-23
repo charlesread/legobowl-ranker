@@ -22,11 +22,31 @@
     <table class="show">
         <tr>
             <td>
+                First Name
+            </td>
+            <td>
+                <g:fieldValue bean="${appUserInstance}" field="firstName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name
+            </td>
+            <td>
+                <g:fieldValue bean="${appUserInstance}" field="lastName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <g:message code="appUser.username.label" default="Username" />
             </td>
             <td>
                 <g:fieldValue bean="${appUserInstance}" field="username" />
             </td>
+        </tr>
+        <tr>
+            <td>Room</td>
+            <td><g:fieldValue bean="${appUserInstance}" field="room" /></td>
         </tr>
         <tr>
             <td>
@@ -77,6 +97,10 @@
             <td>
                 <g:formatBoolean boolean="${appUserInstance?.passwordExpired}" />
             </td>
+        </tr>
+        <tr>
+            <td>Last Login</td>
+            <td><g:formatDate date="${appUserInstance.lastLogin}" /> </td>
         </tr>
     </table>
     <g:form>

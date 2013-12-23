@@ -17,6 +17,7 @@ class AppUser {
     CriteriaGroup criteriaGroup
     String userFullName
     Date lastLogin
+    Room room
 
 	static transients = ['springSecurityService', 'admin', 'judge', 'referee', 'fullName']
 
@@ -24,6 +25,7 @@ class AppUser {
 		username blank: false, unique: true
 		password blank: false
         lastLogin nullable: true
+        room nullable: true
 	}
 
 	static mapping = {

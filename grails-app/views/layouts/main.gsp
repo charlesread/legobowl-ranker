@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 %{--<g:set var="entityName" value="${message(code: 'linkerLink.label', default: 'link')}" />--}%
-<title>LEGO BOWL - <g:layoutTitle default="Grails"/></title>
+<title>FLL - <g:layoutTitle default="Grails"/></title>
     <g:javascript src="jquery-1.10.2.min.js" />
     <g:javascript src="lib.js"/>
 <g:layoutHead/>
@@ -27,7 +27,7 @@
 </div>
 <div id="container">
     <div id="header">
-    	<span class="title">LEGO BOWL</span>
+    	<span class="title">FIRST LEGO LEAGUE</span>
         <span class="comment">making ranking easy</span>
     </div>
     <sec:ifLoggedIn>
@@ -42,6 +42,7 @@
                 %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
                 <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
                 <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
+                <li><g:link class="adminlinks" controller="room" action="list">rooms</g:link></li>
 
             </ul>
         </sec:ifAnyGranted>

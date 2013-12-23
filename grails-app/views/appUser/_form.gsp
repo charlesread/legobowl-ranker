@@ -46,6 +46,10 @@
         </td>
     </tr>
     <tr>
+        <td>Room</td>
+        <td><g:select name="room.id" from="${com.charlesread.Room.list()}" optionKey="id" value="${appUserInstance?.room?.id}" noSelection="['':'-- assign a room --']" /> </td>
+    </tr>
+    <tr>
         <td>
             <g:message code="appUser.authority.label" default="Roles" /></td>
         <td>
@@ -60,7 +64,7 @@
     </tr>
     <tr>
         <td>Criteria Group</td>
-        <td><g:select name="criteriaGroup.id" from="${com.charlesread.CriteriaGroup.list()}" optionKey="id" value="${appUserInstance?.criteriaGroup?.id}" class="many-to-many" /> </td>
+        <td><g:select name="criteriaGroup.id" from="${com.charlesread.CriteriaGroup.list()}" optionKey="id" value="${appUserInstance?.criteriaGroup?.id}" class="many-to-many" noSelection="['':'-- assign a criteria group --']" /> </td>
     </tr>
     <tr>
         <td>

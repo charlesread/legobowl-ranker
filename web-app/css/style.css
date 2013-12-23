@@ -527,4 +527,7 @@ input.roundedOne[type=radio]:checked + span {
 .buttons {
     margin-top: 20px;
 }
+.roomAverage {
+    color: #666;
+}
 

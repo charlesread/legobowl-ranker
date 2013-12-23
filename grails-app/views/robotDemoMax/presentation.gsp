@@ -33,6 +33,13 @@
             function(){
                 $("#controls").animate({opacity:0});
         });
+        $("#twrapper").hover(
+                function(){
+                    $("#time").css('display', 'block')},
+                function(){
+                    $("#time").css('display', 'none');
+                    reset();
+        });
     });
     </script>
   <style>
@@ -151,6 +158,13 @@
           padding: 5px;
       }
 
+      #twrapper {
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          width: 100px;
+          height: 30px;
+      }
 
   </style>
 </head>
@@ -179,11 +193,13 @@
         //,stop: function() {playSound();}
     });
     function reset() {
+        getTime();
         clearTimeout(t);
         clock.reset();
         clock.setTime(time);
     }
     function start() {
+        getTime();
         reset();
         clock.start();
         setTimeout('playSound()',2000);
@@ -194,12 +210,20 @@
         $('audio')[0].load();
         $('audio')[0].play();
     }
+
+    function getTime() {
+        time = parseInt($("#time").val());
+    }
+
 </script>
 
 
 
 
 <div id="out"></div>
+<div id="twrapper">
+    <input type="text" id="time" style="display: none;" />
+</div>
 <div id="tablewrapper">
     <table class='presentation'>
         <thead>

@@ -32,6 +32,7 @@ class AppUserController {
             render(view: "create", model: [appUserInstance: appUserInstance])
             return
         }
+        println "saved"
 
         addRoles(appUserInstance,params.roles)
         flash.message = message(code: 'default.created.message', args: [message(code: 'appUser.label', default: 'AppUser'), appUserInstance.id])

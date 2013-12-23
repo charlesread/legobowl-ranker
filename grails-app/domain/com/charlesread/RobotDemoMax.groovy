@@ -8,6 +8,9 @@ class RobotDemoMax extends RobotDemo {
     Integer rank
 
     static constraints = {
+        run1 nullable: true
+        run2 nullable: true
+        run3 nullable: true
     }
 
     static mapping = {

@@ -9,7 +9,8 @@ package com.charlesread
  */
 class Aggregate {
 
-    String contestant
+    Contestant contestant
+    //String contestant
     Float aggA
     Float aggB
     Float aggC
