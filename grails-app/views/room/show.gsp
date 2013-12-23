@@ -14,18 +14,18 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list room">
+			<table class="show">
 			
 				<g:if test="${roomInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="room.name.label" default="Name" /></span>
+				<tr>
+                    <td><g:message code="room.name.label" default="Name" /></td>
 					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${roomInstance}" field="name"/></span>
+					<td><g:fieldValue bean="${roomInstance}" field="name"/></td>
 					
-				</li>
+				</tr>
 				</g:if>
-			
-			</ol>
+
+            </table>
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${roomInstance?.id}" />
