@@ -27,14 +27,17 @@ class AppUserController {
     }
 
     def save() {
+        println "ENTERING SAVE"
         def appUserInstance = new AppUser(params)
         if (!appUserInstance.save(flush: true)) {
+            println "SAVED"
             render(view: "create", model: [appUserInstance: appUserInstance])
             return
         }
-        println "saved"
 
-        addRoles(appUserInstance,params.roles)
+        if (params.roles) {
+            addRoles(appUserInstance,params.roles)
+        }
         flash.message = message(code: 'default.created.message', args: [message(code: 'appUser.label', default: 'AppUser'), appUserInstance.id])
         redirect(action: "show", id: appUserInstance.id)
     }

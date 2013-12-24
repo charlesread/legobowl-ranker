@@ -13,6 +13,7 @@
   <title></title>
 </head>
 <body>
+<g:render template="nav"/>
 <g:form action="processOutstanding" method="post">
 <table class="list">
 <g:each in="${queueList}" var="queueInstance">

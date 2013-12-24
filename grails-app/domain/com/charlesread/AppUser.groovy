@@ -22,10 +22,11 @@ class AppUser {
 	static transients = ['springSecurityService', 'admin', 'judge', 'referee', 'fullName']
 
 	static constraints = {
-		username blank: false, unique: true
-		password blank: false
-        lastLogin nullable: true
-        room nullable: true
+		username(blank: false, unique: true)
+		password(blank: false)
+        lastLogin(nullable: true)
+        room(blank: true,nullable: true)
+        criteriaGroup(blank: true, nullable: true)
 	}
 
 	static mapping = {
