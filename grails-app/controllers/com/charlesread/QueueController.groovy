@@ -106,12 +106,9 @@ class QueueController {
 
     def processOutstanding () {
         params.checkedQueues.each {
-            Queue queue = Queue.get(it[0])
-
-//            render queue
-            render it[0]
-//            queue.completed = true
-//            queue.save(flush: true)
+            Queue queue = Queue.get(it)
+            queue.completed = true
+            queue.save(flush: true)
 
 
         }
