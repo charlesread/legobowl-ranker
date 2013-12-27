@@ -106,11 +106,15 @@ class QueueController {
 
     def processOutstanding () {
         params.checkedQueues.each {
-            def queue = Queue.get(it)
-            queue.completed = true
-            queue.save(flush: true)
-            redirect(action: 'outstanding')
+            Queue queue = Queue.get(it[0])
+
+//            render queue
+            render it[0]
+//            queue.completed = true
+//            queue.save(flush: true)
+
 
         }
+//        redirect(action: 'outstanding')
     }
 }

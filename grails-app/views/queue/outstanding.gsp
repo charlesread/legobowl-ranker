@@ -5,23 +5,28 @@
   Time: 11:31 PM
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@ page import="com.charlesread.Queue" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main">
-  <title></title>
+    <title></title>
 </head>
 <body>
 <g:render template="nav"/>
 <g:form action="processOutstanding" method="post">
 <table class="list">
+    <thead>
+        <g:sortableColumn property="completed" title="Completed?" />
+        <g:sortableColumn property="sequence" title="Sequence" />
+        <g:sortableColumn property="code" title="Contestant Code" />
+    </thead>
 <g:each in="${queueList}" var="queueInstance">
 
         <tr>
             <td><input type="checkbox" name="checkedQueues" value="${queueInstance.id}" /></td>
             <td>${queueInstance.sequence}</td>
-            <td>${queueInstance.contestant.name}</td>
+            <td>${queueInstance.contestant.code}</td>
         </tr>
 </g:each>
 </table>

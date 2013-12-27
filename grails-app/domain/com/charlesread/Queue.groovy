@@ -20,4 +20,7 @@ class Queue {
     static constraints = {
         sequence(nullable: true)
     }
+    static mapping = {
+        id generator: "sequence", params: [sequence: "LEGO_SEQ"]
+    }
 }
