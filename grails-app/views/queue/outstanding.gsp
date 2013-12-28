@@ -22,9 +22,8 @@
         <g:sortableColumn property="code" title="Contestant Code" />
     </thead>
 <g:each in="${queueList}" var="queueInstance">
-
         <tr>
-            <td><input type="checkbox" name="checkedQueues" value="${queueInstance.id}" /></td>
+            <td width="100"><input type="checkbox" name="checkedQueues" value="${queueInstance.id}" /></td>
             <td>${queueInstance.sequence}</td>
             <td>${queueInstance.contestant.code}</td>
         </tr>

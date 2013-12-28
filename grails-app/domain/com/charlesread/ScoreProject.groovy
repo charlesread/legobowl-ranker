@@ -19,9 +19,11 @@ class ScoreProject {
     Float agg_s3
     Float agg
     String scoreComment
+    Boolean indicative
 
     static constraints = {
         scoreComment(nullable: true, maxSize: 5000)
+        indicative(nullable: true)
     }
 
     static mapping = {

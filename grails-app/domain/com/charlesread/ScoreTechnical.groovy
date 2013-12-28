@@ -18,9 +18,11 @@ class ScoreTechnical {
     Float agg_s3
     Float agg
     String scoreComment
+    Boolean indicative
 
     static constraints = {
         scoreComment(nullable: true)
+        indicative(nullable: true)
     }
 
     static mapping = {

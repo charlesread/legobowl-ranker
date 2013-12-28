@@ -25,7 +25,9 @@
                 <g:select id="judge" name="judge.id" from="${com.charlesread.AppUser.list()}" optionKey="id" required=""
                           value="${scoreProjectInstance?.judge?.id ?: currentUser.id}" class="many-to-one"/>
             </td>
+            <td>Indicative <g:checkBox name="indicative" value="${scoreProjectInstance?.indicative}" /></td>
         </sec:ifAnyGranted>
+
 
     </tr>
 </table>

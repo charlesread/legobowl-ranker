@@ -105,13 +105,17 @@ class QueueController {
     }
 
     def processOutstanding () {
-        params.checkedQueues.each {
-            Queue queue = Queue.get(it)
+        if (params.checkedQueues instanceof String) {
+            Queue queue = Queue.get(params.checkedQueues)
             queue.completed = true
             queue.save(flush: true)
-
-
+        } else {
+            params.checkedQueues.each {
+                Queue queue = Queue.get(it)
+                queue.completed = true
+                queue.save(flush: true)
+            }
         }
-//        redirect(action: 'outstanding')
+        redirect(action: 'outstanding')
     }
 }

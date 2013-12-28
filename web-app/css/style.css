@@ -524,6 +524,9 @@ input.roundedOne[type=radio]:checked + span {
     color: #fff;
     font-weight: bold;
 }
+.scoreInfo tr td {
+    padding-right: 40px;
+}
 .buttons {
     margin-top: 20px;
 }
