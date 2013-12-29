@@ -30,6 +30,8 @@
 
                     <g:sortableColumn property="agg" title="${message(code: 'score.agg_c.label')}"/>
 
+                    <g:sortableColumn property="indicative" title="Indicative" />
+
                     %{--<g:sortableColumn property="a13" title="${message(code: 'score.a13.label', default: 'A13')}"/>--}%
 
                     %{--<g:sortableColumn property="a21" title="${message(code: 'score.a21.label', default: 'A21')}"/>--}%
@@ -57,13 +59,7 @@
 
                         <td>${fieldValue(bean: scoreTechnicalInstance, field: "agg")}</td>
 
-                        %{--<td>${fieldValue(bean: scoreTechnicalInstance, field: "a13")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreTechnicalInstance, field: "a21")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreTechnicalInstance, field: "a22")}</td>--}%
-
-                        %{--<td>${fieldValue(bean: scoreTechnicalInstance, field: "a23")}</td>--}%
+                        <td><g:formatBoolean boolean="${scoreTechnicalInstance.indicative}" /></td>
 
                     </tr>
                 </g:each>

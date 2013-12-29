@@ -14,36 +14,21 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list queue">
-			
-				<g:if test="${queueInstance?.sequence}">
-				<li class="fieldcontain">
-					<span id="sequence-label" class="property-label"><g:message code="queue.sequence.label" default="Sequence" /></span>
-					
-						<span class="property-value" aria-labelledby="sequence-label"><g:fieldValue bean="${queueInstance}" field="sequence"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${queueInstance?.completed}">
-				<li class="fieldcontain">
-					<span id="completed-label" class="property-label"><g:message code="queue.completed.label" default="Completed" /></span>
-					
-						<span class="property-value" aria-labelledby="completed-label"><g:formatBoolean boolean="${queueInstance?.completed}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${queueInstance?.contestant}">
-				<li class="fieldcontain">
-					<span id="contestant-label" class="property-label"><g:message code="queue.contestant.label" default="Contestant" /></span>
-					
-						<span class="property-value" aria-labelledby="contestant-label"><g:link controller="contestant" action="show" id="${queueInstance?.contestant?.id}">${queueInstance?.contestant?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
+        <table class="show">
+            <tr>
+                <td><g:message code="queue.sequence.label" default="Sequence" /></td>
+                <td><g:fieldValue bean="${queueInstance}" field="sequence"/></td>
+            </tr>
+            <tr>
+                <td><g:message code="queue.completed.label" default="Completed" /></td>
+                <td><g:formatBoolean boolean="${queueInstance?.completed}" /></td>
+            </tr>
+            <tr>
+                <td><g:message code="queue.contestant.label" default="Contestant" /></span></td>
+                <td>${queueInstance?.contestant?.encodeAsHTML()}</td>
+            </tr>
+        </table>
+
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${queueInstance?.id}" />

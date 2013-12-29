@@ -14,15 +14,15 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="list">
 				<thead>
 					<tr>
 					
 						<g:sortableColumn property="sequence" title="${message(code: 'queue.sequence.label', default: 'Sequence')}" />
 					
 						<g:sortableColumn property="completed" title="${message(code: 'queue.completed.label', default: 'Completed')}" />
-					
-						<th><g:message code="queue.contestant.label" default="Contestant" /></th>
+
+                        <g:sortableColumn property="contestant.name" title="${message(code: 'queue.contestant.label', default: 'Contestant')}" />
 					
 					</tr>
 				</thead>

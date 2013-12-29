@@ -8,6 +8,7 @@ import grails.plugin.springsecurity.SpringSecurityUtils
 class ScoreTechnicalController {
 
     def springSecurityService
+    def appService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -32,6 +33,7 @@ class ScoreTechnicalController {
 
     def save() {
         def scoreTechnicalInstance = new ScoreTechnical(params)
+        appService.indicativeCheck(scoreTechnicalInstance.contestant, scoreTechnicalInstance)
         if (!scoreTechnicalInstance.save(flush: true)) {
             render(view: "create", model: [scoreTechnicalInstance: scoreTechnicalInstance])
             return
@@ -65,6 +67,7 @@ class ScoreTechnicalController {
 
     def update(Long id, Long version) {
         def scoreTechnicalInstance = ScoreTechnical.get(id)
+        appService.indicativeCheck(scoreTechnicalInstance.contestant, scoreTechnicalInstance)
         if (!scoreTechnicalInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'scoreTechnical.label', default: 'ScoreTechnical'), id])
             redirect(action: "list")

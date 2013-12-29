@@ -30,6 +30,8 @@
 
                     <g:sortableColumn property="agg" title="${message(code: 'score.agg_b.label')}"/>
 
+                    <g:sortableColumn property="indicative" title="Indicative" />
+
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +50,8 @@
                         <td>${fieldValue(bean: scoreProjectInstance, field: "agg_s3")}</td>
 
                         <td>${fieldValue(bean: scoreProjectInstance, field: "agg")}</td>
+
+                        <td><g:formatBoolean boolean="${scoreProjectInstance.indicative}" /></td>
 
                     </tr>
                 </g:each>

@@ -22,11 +22,11 @@
 
             <g:sortableColumn property="contestant" title="Contestant"/>
 
-            <g:sortableColumn property="agg1" title="${message(code: 'score.b1.label')} Average"/>
+            <g:sortableColumn property="agg1" title="${message(code: 'score.b1.label')} Avg."/>
 
-            <g:sortableColumn property="agg2" title="${message(code: 'score.b2.label')} Average"/>
+            <g:sortableColumn property="agg2" title="${message(code: 'score.b2.label')} Avg."/>
 
-            <g:sortableColumn property="agg3" title="${message(code: 'score.b3.label')} Average"/>
+            <g:sortableColumn property="agg3" title="${message(code: 'score.b3.label')} Avg."/>
 
             <g:sortableColumn property="aggTotal" title="${message(code: 'score.agg_b.label')}"/>
 
