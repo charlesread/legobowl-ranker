@@ -23,7 +23,7 @@ class LegoRankTagLib {
         Criterion c = Criterion.findByCode(attr.code)
 
 
-        out << "<div class='criterionBlock' style='background-color:${attr.color};'><table class='criterionTable' width='800'>"
+        out << "<div class='criterionBlock ${attr.clazz}'><table class='criterionTable' width='800'>"
         out << "<tr>"
         out << "<td colspan='2'>"
         out << c.name
@@ -33,18 +33,52 @@ class LegoRankTagLib {
         out << "</td>"
         out << "</tr>"
         out << "<tr class='radiorow' width='40'>"
-        out << "<td style='width:30px;'><label><input class='roundedOne' type='radio' name='${attr.name}' value='0' ${attr.criterion == 0 ? 'checked' : ''}  /><span>ND</span></label></td>"
+        out << "<td style='width:30px;'><label><input class='roundedOne' type='radio' name='${attr.name}' value='0' ${attr.criterion == 0 ? 'checked="checked"' : ''}  /><span>ND</span></label></td>"
         out << "<td width='190'>"
-        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='1' ${attr.criterion == 1 ? 'checked' : ''}  /><span>${c.s1}</span></label>"
+        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='1' ${attr.criterion == 1 ? 'checked="checked"' : ''}  /><span>${c.s1}</span></label>"
         out << "</td>"
         out << "<td width='190'>"
-        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='2' ${attr.criterion == 2 ? 'checked' : ''}  /><span>${c.s2}</span></label>"
+        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='2' ${attr.criterion == 2 ? 'checked="checked"' : ''}  /><span>${c.s2}</span></label>"
         out << "</td>"
         out << "<td width='190'>"
-        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='3' ${attr.criterion == 3 ? 'checked' : ''}  /><span>${c.s3}</span></label>"
+        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='3' ${attr.criterion == 3 ? 'checked="checked"' : ''}  /><span>${c.s3}</span></label>"
         out << "</td>"
         out << "<td width='190'>"
-        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='4' ${attr.criterion == 4 ? 'checked' : ''}  /><span>${c.s4}</span></label>"
+        out << "<label><input class='roundedOne' type='radio' name='${attr.name}' value='4' ${attr.criterion == 4 ? 'checked="checked"' : ''}  /><span>${c.s4}</span></label>"
+        out << "</td>"
+        out << "</tr>"
+        out << "</table></div>"
+
+
+    }
+
+    def reportCriterionBlock = {attr, body ->
+
+        Criterion c = Criterion.findByCode(attr.code)
+
+
+        out << "<div class='reportCriterionBlock ${attr.clazz}'><table class='criterionTable' width='800'>"
+        out << "<tr>"
+        out << "<td colspan='2'>"
+        out << c.name
+        out << "</td>"
+        out << "<td colspan='3'>"
+        out << c.description
+        out << "</td>"
+        out << "</tr>"
+        out << "<tr class='radiorow' width='40'>"
+        out << "<td style='width:30px;'><span class='${attr.criterion == 0 ? 'checked' : ''}'>ND</span></td>"
+        out << "<td width='190'>"
+        out << "<span class='${attr.criterion == 1 ? 'checked' : ''}'>${c.s1}</span>"
+        out << "</td>"
+        out << "<td width='190'>"
+        out << "<span class='${attr.criterion == 2 ? 'checked' : ''}'>${c.s2}</span>"
+        out << "</td>"
+        out << "<td width='190'>"
+        out << "<span class='${attr.criterion == 3 ? 'checked' : ''}'>${c.s3}</span>"
+        out << "</td>"
+        out << "<td width='190'>"
+        out << "<span class='${attr.criterion == 4 ? 'checked' : ''}'>${c.s4}</span>"
         out << "</td>"
         out << "</tr>"
         out << "</table></div>"

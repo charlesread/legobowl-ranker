@@ -139,4 +139,12 @@ class ScoreProjectController {
 
     }
 
+    def report(Long id) {
+        Contestant contestant = Contestant.get(id)
+        def scoreProjectInstance = ScoreProject.findByContestantAndIndicative(contestant,true)
+        renderPdf(template: "/scoreProject/report", model: [scoreProjectInstance: scoreProjectInstance], filename: "${contestant} Project Score Report.pdf")
+
+//        render(template: '/scoreProject/report', model: [scoreProjectInstance: scoreProjectInstance] )
+    }
+
 }

@@ -534,3 +534,13 @@ input.roundedOne[type=radio]:checked + span {
     color: #666;
 }
 
+.projectCriterionBlock {
+    background-color: #FFFFC0;
+}
+.technicalCriterionBlock {
+    background-color: #DBEFFF;
+}
+.valuesCriterionBlock {
+    background-color: #FFD0CA;
+}
+
