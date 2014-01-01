@@ -23,6 +23,8 @@
 
             <th></th>
             <th></th>
+            <th></th>
+            <th></th>
 
         </tr>
         </thead>
@@ -36,7 +38,14 @@
                 <td><g:link action="show"
                             id="${contestantInstance.id}">${contestantInstance}</g:link></td>
 
-                <td><a href="/legoleague/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Scores</a></td>
+                %{--<td><a href="/legoleague/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Scores</a></td>--}%
+
+                <td><g:link controller="scoreValues" action="report" id="${contestantInstance.id}">Core Values Scores</g:link></td>
+
+                <td><g:link controller="scoreProject" action="report" id="${contestantInstance.id}">Project Scores</g:link></td>
+
+                <td><g:link controller="scoreTechnical" action="report" id="${contestantInstance.id}">Technical Scores</g:link></td>
+
 
                 <td><a href="/legoleague/aggregation/contestantReport/${fieldValue(bean: contestantInstance, field: "id")}">Score Report (PDF)</a> </td>
 

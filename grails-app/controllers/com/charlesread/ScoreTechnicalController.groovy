@@ -137,4 +137,12 @@ class ScoreTechnicalController {
         render(view: 'aggregate', model: [aggregates: out])
 
     }
+
+    def report(Long id) {
+        Contestant contestant = Contestant.get(id)
+        def scoreTechnicalInstance = ScoreTechnical.findByContestantAndIndicative(contestant,true)
+        renderPdf(template: "/scoreTechnical/report", model: [scoreTechnicalInstance: scoreTechnicalInstance], filename: "${contestant} Technical Score Report.pdf")
+
+//        render(template: '/scoreTechnical/report', model: [scoreTechnicalInstance: scoreTechnicalInstance] )
+    }
 }

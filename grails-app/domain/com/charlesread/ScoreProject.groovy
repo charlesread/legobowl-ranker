@@ -33,5 +33,6 @@ class ScoreProject {
         agg_s3 formula: "(s31 + s32 + s33) / 3"
         agg formula: "(s11 + s12 + s13 + s14 + s21 + s22 + s23 + s31 + s32 + s33) / 10"
         scoreComment sqlType: 'clob'
+        version false
     }
 }
