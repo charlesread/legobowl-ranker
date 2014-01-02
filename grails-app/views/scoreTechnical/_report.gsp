@@ -10,12 +10,14 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'report.css')}" type="text/css" />
+    <style>
+        <g:render contextPath="/common" template="reportcss" />
+    </style>
 </head>
 <body>
 <div id="header">
     <h1>
-        ${scoreTechnicalInstance.contestant} Technical Score Report
+        ${scoreTechnicalInstance.contestant} Core Values Score Report
     </h1>
 </div>
 <div class="blockWrapper">

@@ -137,4 +137,12 @@ class ScoreValuesController {
         render(view: 'aggregate', model: [aggregates: out])
 
     }
+
+    def report(Long id) {
+        Contestant contestant = Contestant.get(id)
+        def scoreValuesInstance = ScoreValues.findByContestantAndIndicative(contestant,true)
+        renderPdf(template: "/scoreValues/report", model: [scoreValuesInstance: scoreValuesInstance], filename: "${contestant} Core Values Score Report.pdf")
+
+//        render(template: '/scoreValues/report', model: [scoreValuesInstance: scoreValuesInstance] )
+    }
 }

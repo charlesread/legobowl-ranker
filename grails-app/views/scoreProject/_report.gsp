@@ -10,7 +10,9 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'report.css')}" type="text/css" />
+    <style>
+        <g:render contextPath="/common" template="reportcss" />
+    </style>
 </head>
 <body>
 <div id="header">

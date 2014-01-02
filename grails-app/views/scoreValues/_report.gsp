@@ -10,39 +10,41 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'report.css')}" type="text/css" />
+    <style>
+        <g:render contextPath="/common" template="reportcss" />
+    </style>
 </head>
 <body>
 <div id="header">
     <h1>
-        ${scoreProjectInstance.contestant} Project Score Report
+        ${scoreValuesInstance.contestant} Core Values Score Report
     </h1>
 </div>
 <div class="blockWrapper">
-    <span class="blockWrapperTitle"><g:message code="score.b1.label" /></span>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b11" name="s11" criterion="${scoreProjectInstance.s11}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b12" name="s12" criterion="${scoreProjectInstance.s12}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b13" name="s13" criterion="${scoreProjectInstance.s13}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b14" name="s14" criterion="${scoreProjectInstance.s14}"></g:reportCriterionBlock>
+    <span class="blockWrapperTitle"><g:message code="score.a1.label" /></span>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a11" name="s11" criterion="${scoreValuesInstance.s11}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a12" name="s12" criterion="${scoreValuesInstance.s12}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a13" name="s13" criterion="${scoreValuesInstance.s13}"></g:reportCriterionBlock>
+
 </div>
 
 <div class="blockWrapper">
-    <span class="blockWrapperTitle"><g:message code="score.b2.label" /></span>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b21" name="s21" criterion="${scoreProjectInstance.s21}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b22" name="s22" criterion="${scoreProjectInstance.s22}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b23" name="s23" criterion="${scoreProjectInstance.s23}"></g:reportCriterionBlock>
+    <span class="blockWrapperTitle"><g:message code="score.a2.label" /></span>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a21" name="s21" criterion="${scoreValuesInstance.s21}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a22" name="s22" criterion="${scoreValuesInstance.s22}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a23" name="s23" criterion="${scoreValuesInstance.s23}"></g:reportCriterionBlock>
 </div>
 
 <div class="blockWrapper">
-    <span class="blockWrapperTitle"><g:message code="score.b3.label" /></span>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b31" name="s31" criterion="${scoreProjectInstance.s31}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b32" name="s32" criterion="${scoreProjectInstance.s32}"></g:reportCriterionBlock>
-    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="b33" name="s33" criterion="${scoreProjectInstance.s33}"></g:reportCriterionBlock>
+    <span class="blockWrapperTitle"><g:message code="score.a3.label" /></span>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a31" name="s31" criterion="${scoreValuesInstance.s31}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a32" name="s32" criterion="${scoreValuesInstance.s32}"></g:reportCriterionBlock>
+    <g:reportCriterionBlock clazz="projectreportCriterionBlock" code="a33" name="s33" criterion="${scoreValuesInstance.s33}"></g:reportCriterionBlock>
 </div>
 
 <div class="blockWrapper">
     <span class="blockWrapperTitle">Comments</span>
-    <div class="comment"><g:textArea class="scoreComment" name="scoreComment" value="${scoreProjectInstance?.scoreComment}" /></div>
+    <div class="comment"><g:textArea class="scoreComment" name="scoreComment" value="${scoreValuesInstance?.scoreComment}" /></div>
 </div>
 </body>
 </html>
