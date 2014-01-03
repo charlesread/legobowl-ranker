@@ -244,7 +244,7 @@ h1 {
     color: #fff;
 }
 
-.list {
+.showList, .list {
 
 	width:100%;
 	border-spacing:0px;
@@ -257,7 +257,7 @@ h1 {
     font-size: 13px;
 }
 
-table.list tbody tr {
+table.showList tbody tr, table.list tbody tr {
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -265,25 +265,25 @@ table.list tbody tr {
 
 }
 
-table.list tbody tr:hover {
+table.showList tbody tr:hover, table.list tbody tr:hover {
     background-color: #BAE3FF;
 }
 
-.list thead th, .list tbody td {
+.showList thead th, .showList tbody td, .list thead th, .list tbody td {
 	padding: 7px;
 }
 
-.list thead tr {
+.showList thead tr, .list thead tr  {
 	text-align: left;
 	background-color: #333;
 
 }
 
-.list thead tr th:first-child {
+.showList thead tr th:first-child, .list thead tr th:first-child  {
     border-top-left-radius: 5px;
     overflow: hidden;
 }
-.list thead tr th:last-child {
+.showList thead tr th:last-child, .list thead tr th:last-child {
     border-top-right-radius: 5px;
     overflow: hidden;
 }
@@ -292,29 +292,31 @@ table.list tbody tr:hover {
     border-top: 1px solid #000;
 }
 
-.list tbody tr:last-child td:first-child {
+.showList tbody tr:last-child td:first-child, .list tbody tr:last-child td:first-child  {
     border-bottom-left-radius: 5px;
 }
-.list tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 5px;
+.showList tbody tr:last-child td:last-child, .list tbody tr:last-child td:last-child {
+border-bottom-right-radius: 5px;
 }
 
-.list thead a {
+.showList thead a, .list thead a {
 	text-decoration: none;
 	color: #fff;
 }
 
-.list tbody a, .coloredlink {
+.showList tbody a, .coloredlink, .list tbody a {
 	text-decoration: none;
 	border-bottom: 1px dashed #333;
 	color: #333;
 }
 
-.list tbody tr:nth-child(2n) {
+.showList tbody tr:nth-child(2n),
+.even {
     background-color: #aaa;
 }
 
-.list tbody tr:nth-child(2n+1) {
+.showList tbody tr:nth-child(2n+1),
+.odd {
     background-color: #999;
 }
 

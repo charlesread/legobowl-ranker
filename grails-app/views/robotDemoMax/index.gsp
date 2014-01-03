@@ -10,13 +10,13 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title></title>
+    <title>robot demo maximums</title>
     <g:set var="entityName" value="${message(code: 'robotDemo.label', default: 'RobotDemo')}" />
 </head>
 <body>
 <g:render template="nav" contextPath="../robotDemo" />
 <h1><g:message code="robotDemo.label" args="[entityName]" /> maximums</h1>
-    <table class="list">
+    <table class="showList">
         <thead>
             <tr>
                 <g:sortableColumn property="rank" title="Rank" />

@@ -2,23 +2,30 @@ package com.charlesread
 
 class AppService {
 
-    def indicativeCheck(Contestant contestant, def group) {
-        if (group.indicative) {
+    def indicativeCheck(def group, String indicative) {
+//        println("indicativeCheck called")
+//        println("val = ${indicative}")
+        if (indicative == 'on') {
+//            println("ind checked")
             def list
             switch (group) {
                 case ScoreValues:
-                    list = ScoreValues.findAllByContestantAndIndicative(contestant,true)
+//                    println("ScoreValues")
+                    list = ScoreValues.findAllByContestantAndIndicative(group.contestant,true)
                     break
                 case ScoreTechnical:
-                    list = ScoreTechnical.findAllByContestantAndIndicative(contestant,true)
+//                    println("ScoreTechnical")
+                    list = ScoreTechnical.findAllByContestantAndIndicative(group.contestant,true)
                     break
                 case ScoreProject:
-                    list = ScoreProject.findAllByContestantAndIndicative(contestant,true)
+//                    println("ScoreProject")
+                    list = ScoreProject.findAllByContestantAndIndicative(group.contestant,true)
                     break
                 default:
                     break
             }
             if (list.size() > 0) {
+//                println("list > 0")
                 list.each {
                     it.indicative = false
                     it.save(flush: true)

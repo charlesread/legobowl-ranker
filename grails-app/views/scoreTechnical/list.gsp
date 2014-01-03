@@ -55,7 +55,7 @@
                 <g:each in="${scoreTechnicalInstanceList}" status="i" var="scoreTechnicalInstance">
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                        <td><g:link action="show"
+                        <td width="100"><g:link action="show"
                                     id="${scoreTechnicalInstance.id}">${fieldValue(bean: scoreTechnicalInstance, field: "contestant")}</g:link></td>
 
                         <td>${scoreTechnicalInstance.judge.userFullName}</td>
@@ -71,6 +71,12 @@
                         <td><g:formatBoolean boolean="${scoreTechnicalInstance.indicative}" /></td>
 
                     </tr>
+                    <g:if test="${scoreTechnicalInstance.scoreComment}">
+                        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                            <td></td>
+                            <td colspan="6">${scoreTechnicalInstance.scoreComment}</td>
+                        </tr>
+                    </g:if>
                 </g:each>
                 </tbody>
             </table>

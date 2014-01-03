@@ -25,7 +25,7 @@
 			<div class="message" role="status">${flash.message}</div>
             </g:if>
             <g:form method="post" >
-			<table class="list">
+			<table class="showList">
 			    <thead>
                     <th><a href="">Criterion</a></th>
                     <th><a href="">Score</a></th>

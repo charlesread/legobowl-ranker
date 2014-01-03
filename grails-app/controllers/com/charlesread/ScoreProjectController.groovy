@@ -35,7 +35,7 @@ class ScoreProjectController {
 
     def save() {
         def scoreProjectInstance = new ScoreProject(params)
-        appService.indicativeCheck(scoreProjectInstance.contestant, scoreProjectInstance)
+        appService.indicativeCheck(scoreProjectInstance, params.indicative)
         if (!scoreProjectInstance.save(flush: true)) {
             render(view: "create", model: [scoreProjectInstance: scoreProjectInstance])
             return
@@ -69,13 +69,13 @@ class ScoreProjectController {
 
     def update(Long id, Long version) {
         def scoreProjectInstance = ScoreProject.get(id)
-        appService.indicativeCheck(scoreProjectInstance.contestant, scoreProjectInstance)
+
         if (!scoreProjectInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'scoreProject.label', default: 'ScoreProject'), id])
             redirect(action: "list")
             return
         }
-
+        appService.indicativeCheck(scoreProjectInstance, params.indicative)
         if (version != null) {
             if (scoreProjectInstance.version > version) {
                 scoreProjectInstance.errors.rejectValue("version", "default.optimistic.locking.failure",

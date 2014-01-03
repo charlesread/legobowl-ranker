@@ -33,7 +33,7 @@ class ScoreTechnicalController {
 
     def save() {
         def scoreTechnicalInstance = new ScoreTechnical(params)
-        appService.indicativeCheck(scoreTechnicalInstance.contestant, scoreTechnicalInstance)
+        appService.indicativeCheck(scoreTechnicalInstance, params.indicative)
         if (!scoreTechnicalInstance.save(flush: true)) {
             render(view: "create", model: [scoreTechnicalInstance: scoreTechnicalInstance])
             return
@@ -67,13 +67,13 @@ class ScoreTechnicalController {
 
     def update(Long id, Long version) {
         def scoreTechnicalInstance = ScoreTechnical.get(id)
-        appService.indicativeCheck(scoreTechnicalInstance.contestant, scoreTechnicalInstance)
+
         if (!scoreTechnicalInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'scoreTechnical.label', default: 'ScoreTechnical'), id])
             redirect(action: "list")
             return
         }
-
+        appService.indicativeCheck(scoreTechnicalInstance, params.indicative)
         if (version != null) {
             if (scoreTechnicalInstance.version > version) {
                 scoreTechnicalInstance.errors.rejectValue("version", "default.optimistic.locking.failure",

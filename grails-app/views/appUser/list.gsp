@@ -24,7 +24,11 @@
 
                         <th><a href="">Referee</a></th>
 
+                        <g:sortableColumn property="criteriaGroup" title="Group" />
+
                         <g:sortableColumn property="room.name" title="Room" />
+
+
 					
 						<g:sortableColumn property="accountExpired" title="${message(code: 'appUser.accountExpired.label', default: 'Account Expired')}" />
 					
@@ -45,6 +49,8 @@
                         <td>${com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_JUDGE')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_USER')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_ADMIN')) ? '&#10003;' : ''}</td>
 
                         <td>${com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_REFEREE')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_USER')) || com.charlesread.AppUserAppRole.findByAppUserAndAppRole(appUserInstance,AppRole.findByAuthority('ROLE_ADMIN')) ? '&#10003;' : ''}</td>
+
+                        <td>${appUserInstance?.criteriaGroup}</td>
 
                         <td>${appUserInstance?.room?.name}</td>
 

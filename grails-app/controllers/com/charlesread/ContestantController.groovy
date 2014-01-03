@@ -16,6 +16,8 @@ class ContestantController {
 
     def list(Integer max) {
         //params.max = Math.min(max ?: 10, 100)
+        params.sort = params.sort ?: 'code'
+        params.order = params.order ?: 'asc'
         [contestantInstanceList: Contestant.list(params), contestantInstanceTotal: Contestant.count()]
     }
 

@@ -22,7 +22,7 @@
 <body>
 <div id="logout">
     <sec:ifLoggedIn>
-        <a href="/legobowl/j_spring_security_logout">Hi, <g:currentUserFirstName/>!  Click here to logout.</a>
+        <a href="/legoleague/j_spring_security_logout">Hi, <g:currentUserFirstName/>!  Click here to logout.</a>
     </sec:ifLoggedIn>
 </div>
 <div id="container">

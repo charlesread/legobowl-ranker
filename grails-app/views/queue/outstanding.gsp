@@ -15,7 +15,7 @@
 <body>
 <g:render template="nav"/>
 <g:form action="processOutstanding" method="post">
-<table class="list">
+<table class="showList">
     <thead>
         <g:sortableColumn property="completed" title="Completed?" />
         <g:sortableColumn property="sequence" title="Sequence" />
@@ -29,6 +29,7 @@
         </tr>
 </g:each>
 </table>
+    <br />
 <g:submitButton name="submit" value="mark checked as completed" />
 </g:form>
 </body>

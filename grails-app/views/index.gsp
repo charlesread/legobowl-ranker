@@ -81,11 +81,11 @@
 		%{--</style>--}%
 	</head>
 	<body>
-		<div>
-            <h2>What is it?</h2>
-            <p>
-                You know how it takes forever to aggregate all of those score packets?  Not any more!  This app makes it easy to record scores for LEGO BOWL contestants and it instantly aggregates all of the scorecards, so it's easy to determine who wins.
-            </p>
-		</div>
+		%{--<div>--}%
+            %{--<h2>What is it?</h2>--}%
+            %{--<p>--}%
+                %{--You know how it takes forever to aggregate all of those score packets?  Not any more!  This app makes it easy to record scores for LEGO BOWL contestants and it instantly aggregates all of the scorecards, so it's easy to determine who wins.--}%
+            %{--</p>--}%
+		%{--</div>--}%
 	</body>
 </html>
