@@ -184,7 +184,7 @@
 </div>
 <script>
 
-    var time = 5;
+    var time = 150;
     var t;
     var clock = $('.countdown').FlipClock(time,{
         autoStart: false,
@@ -193,13 +193,13 @@
         //,stop: function() {playSound();}
     });
     function reset() {
-        getTime();
+//        getTime();
         clearTimeout(t);
         clock.reset();
         clock.setTime(time);
     }
     function start() {
-        getTime();
+//        getTime();
         reset();
         clock.start();
         setTimeout('playSound()',2000);

@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 %{--<g:set var="entityName" value="${message(code: 'linkerLink.label', default: 'link')}" />--}%
-<title>FLL - <g:layoutTitle default="Grails"/></title>
+<title>FLL - <g:layoutTitle /></title>
     <g:javascript src="jquery-1.10.2.min.js" />
     <g:javascript src="lib.js"/>
 <g:layoutHead/>

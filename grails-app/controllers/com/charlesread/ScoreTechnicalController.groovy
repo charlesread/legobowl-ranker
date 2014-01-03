@@ -20,7 +20,7 @@ class ScoreTechnicalController {
         params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
-            list = ScoreTechnical.list(params)
+            list = params.contestant ? ScoreTechnical.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreTechnical.list(params)
         } else {
             list = ScoreTechnical.findAllByJudge(springSecurityService.currentUser, params)
         }

@@ -10,7 +10,17 @@
 	<body>
         <g:render template="nav" />
 		<div id="list-scoreValues" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<table style="width: 100%;">
+                <tr>
+                    <td><h1><g:message code="default.list.label" args="[entityName]" /></h1></td>
+                    <td style="text-align: right; color: #666;  ">
+                        <g:form action="list" method="post" name="main">
+                            (optional) filter by <g:select name="contestant" optionKey="id" from="${com.charlesread.Contestant.list(sort: "code", order: 'asc')}" onchange="document.main.submit();"  noSelection="${['':'-- select a contestant --']}" value="${params.contestant}" />
+                        </g:form>
+                    </td>
+                </tr>
+			</table>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

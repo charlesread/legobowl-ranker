@@ -20,11 +20,12 @@ class ScoreProjectController {
         params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
-            list = ScoreProject.list(params)
+            list = params.contestant ? ScoreProject.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreProject.list(params)
         } else {
             list = ScoreProject.findAllByJudge(springSecurityService.currentUser, params)
         }
         [scoreProjectInstanceList: list, scoreProjectInstanceTotal: ScoreProject.count()]
+//        println("called")
     }
 
     def create() {

@@ -40,11 +40,20 @@
 
                 %{--<td><a href="/legoleague/contestant/scores/${fieldValue(bean: contestantInstance, field: "id")}">Scores</a></td>--}%
 
-                <td><g:link controller="scoreValues" action="report" id="${contestantInstance.id}">Core Values Scores</g:link></td>
+                <td><g:if test="${com.charlesread.ScoreValues.findByContestantAndIndicative(contestantInstance,true)}">
+                        <g:link controller="scoreValues" action="report" id="${contestantInstance.id}">Core Values Scores</g:link>
+                    </g:if>
+                </td>
 
-                <td><g:link controller="scoreProject" action="report" id="${contestantInstance.id}">Project Scores</g:link></td>
+                <td><g:if test="${com.charlesread.ScoreProject.findByContestantAndIndicative(contestantInstance,true)}">
+                        <g:link controller="scoreProject" action="report" id="${contestantInstance.id}">Project Scores</g:link>
+                    </g:if>
+                </td>
 
-                <td><g:link controller="scoreTechnical" action="report" id="${contestantInstance.id}">Technical Scores</g:link></td>
+                <td><g:if test="${com.charlesread.ScoreTechnical.findByContestantAndIndicative(contestantInstance,true)}">
+                        <g:link controller="scoreTechnical" action="report" id="${contestantInstance.id}">Technical Scores</g:link>
+                    </g:if>
+                </td>
 
 
                 <td><a href="/legoleague/aggregation/contestantReport/${fieldValue(bean: contestantInstance, field: "id")}">Score Report (PDF)</a> </td>
