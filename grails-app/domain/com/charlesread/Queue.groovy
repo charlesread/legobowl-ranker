@@ -6,6 +6,7 @@ class Queue {
     Integer sequence
     Boolean completed
 
+
     def beforeInsert() {
         if (!sequence) {
             Long maxSequence = Queue.createCriteria().get {
