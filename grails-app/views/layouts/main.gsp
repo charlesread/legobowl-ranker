@@ -44,6 +44,7 @@
                 <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
                 <li><g:link class="adminlinks" controller="room" action="list">rooms</g:link></li>
                 <li><g:link class="adminlinks" controller="queue" action="list">queue</g:link></li>
+                <li><g:link class="adminlinks" controller="robotDemoTable" action="list">tables</g:link></li>
 
             </ul>
         </sec:ifAnyGranted>

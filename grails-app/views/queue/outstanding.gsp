@@ -19,13 +19,17 @@
     <thead>
         <g:sortableColumn property="completed" title="Completed?" />
         <g:sortableColumn property="sequence" title="Sequence" />
-        <g:sortableColumn property="code" title="Contestant Code" />
+        <g:sortableColumn property="contestant1.code" title="Contestant 1 Code" />
+        <g:sortableColumn property="contestant2.code" title="Contestant 2 Code" />
+        <g:sortableColumn property="table" title="Table" />
     </thead>
 <g:each in="${queueList}" var="queueInstance">
         <tr>
             <td width="100"><input type="checkbox" name="checkedQueues" value="${queueInstance.id}" /></td>
             <td>${queueInstance.sequence}</td>
-            <td>${queueInstance.contestant.code}</td>
+            <td>${queueInstance.contestant1.code}</td>
+            <td>${queueInstance.contestant2.code}</td>
+            <td>${queueInstance.table}</td>
         </tr>
 </g:each>
 </table>

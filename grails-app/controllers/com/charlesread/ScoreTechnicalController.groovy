@@ -145,4 +145,10 @@ class ScoreTechnicalController {
 
 //        render(template: '/scoreTechnical/report', model: [scoreTechnicalInstance: scoreTechnicalInstance] )
     }
+
+    def makeIndicative(Long id) {
+        ScoreTechnical scoreTechnicalInstance = ScoreTechnical.get(id)
+        appService.toggleIndicative(scoreTechnicalInstance)
+        render(view: 'show', model: [scoreTechnicalInstance: scoreTechnicalInstance])
+    }
 }

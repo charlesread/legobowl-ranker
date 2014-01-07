@@ -10,8 +10,16 @@
         <td><g:checkBox name="completed" value="${queueInstance?.completed}" /></td>
     </tr>
     <tr>
-        <td><g:message code="queue.sequence.label" default="Contestant" /></td>
-        <td><g:select id="contestant" name="contestant.id" from="${com.charlesread.Contestant.list(sort: 'code')}" optionKey="id" required="" value="${queueInstance?.contestant?.id}" class="many-to-one"/></td>
+        <td><g:message code="queue.sequence.label" default="Contestant 1" /></td>
+        <td><g:select id="contestant1" name="contestant1.id" from="${com.charlesread.Contestant.list(sort: 'code')}" optionKey="id" required="" value="${queueInstance?.contestant1?.id}" class="many-to-one"/></td>
+    </tr>
+    <tr>
+        <td><g:message code="queue.sequence.label" default="Contestant 2" /></td>
+        <td><g:select id="contestant2" name="contestant2.id" from="${com.charlesread.Contestant.list(sort: 'code')}" optionKey="id" required="" value="${queueInstance?.contestant2?.id}" class="many-to-one"/></td>
+    </tr>
+    <tr>
+        <td><g:message code="queue.sequence.label" default="Table" /></td>
+        <td><g:select id="robotDemoTable" name="table.id" from="${com.charlesread.RobotDemoTable.list(sort: 'name')}" optionKey="id" required="" value="${queueInstance?.table?.id}" class="many-to-one"/></td>
     </tr>
 </table>
 

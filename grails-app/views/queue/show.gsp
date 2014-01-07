@@ -24,8 +24,16 @@
                 <td><g:formatBoolean boolean="${queueInstance?.completed}" /></td>
             </tr>
             <tr>
-                <td><g:message code="queue.contestant.label" default="Contestant" /></span></td>
-                <td>${queueInstance?.contestant?.encodeAsHTML()}</td>
+                <td><g:message code="queue.contestant.label" default="Contestant 1" /></span></td>
+                <td>${queueInstance?.contestant1?.encodeAsHTML()}</td>
+            </tr>
+            <tr>
+                <td><g:message code="queue.contestant.label" default="Contestant 2" /></span></td>
+                <td>${queueInstance?.contestant2?.encodeAsHTML()}</td>
+            </tr>
+            <tr>
+                <td><g:message code="queue.contestant.label" default="Table" /></span></td>
+                <td>${queueInstance?.table}</td>
             </tr>
         </table>
 

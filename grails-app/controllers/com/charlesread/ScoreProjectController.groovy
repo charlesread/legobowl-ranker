@@ -148,4 +148,10 @@ class ScoreProjectController {
 //        render(template: '/scoreProject/report', model: [scoreProjectInstance: scoreProjectInstance] )
     }
 
+    def makeIndicative(Long id) {
+        ScoreProject scoreProjectInstance = ScoreProject.get(id)
+        appService.toggleIndicative(scoreProjectInstance)
+        render(view: 'show', model: [scoreProjectInstance: scoreProjectInstance])
+    }
+
 }

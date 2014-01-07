@@ -20,6 +20,10 @@
                     <th><a href="">Value</a></th>
                 </thead>
                 <tr>
+                    <td>Indicative</td>
+                    <td><g:formatBoolean boolean="${scoreProjectInstance?.indicative}" /></td>
+                </tr>
+                <tr>
                     <td>
                         <g:message code="score.b11.label" default="b11" />
                     </td>
@@ -132,10 +136,14 @@
                         <g:fieldValue bean="${scoreProjectInstance}" field="agg" />
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">${scoreProjectInstance?.scoreComment ? "<b>Comment:</b> ${scoreProjectInstance?.scoreComment}" : "No comment"}</td>
+                </tr>
             </table>
 			<g:form>
 				<div class="buttons">
 					<g:hiddenField name="id" value="${scoreProjectInstance?.id}" />
+                    <g:link class="edit" action="makeIndicative" id="${scoreProjectInstance?.id}">toggle indicative</g:link>
 					<g:link class="edit" action="edit" id="${scoreProjectInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					%{--<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
                     <g:actionSubmitLink class="blueButton" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="deleteConfirm()" />

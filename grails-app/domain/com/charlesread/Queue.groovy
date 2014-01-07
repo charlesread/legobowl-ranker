@@ -2,7 +2,9 @@ package com.charlesread
 
 class Queue {
 
-    Contestant contestant
+    Contestant contestant1
+    Contestant contestant2
+    RobotDemoTable table
     Integer sequence
     Boolean completed
 

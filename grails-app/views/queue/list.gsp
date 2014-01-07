@@ -22,8 +22,12 @@
 					
 						<g:sortableColumn property="completed" title="${message(code: 'queue.completed.label', default: 'Completed')}" />
 
-                        <g:sortableColumn property="contestant.name" title="${message(code: 'queue.contestant.label', default: 'Contestant')}" />
-					
+                        <g:sortableColumn property="contestant1.name" title="${message(code: 'queue.contestant.label', default: 'Contestant 1')}" />
+
+                        <g:sortableColumn property="contestant2.name" title="${message(code: 'queue.contestant.label', default: 'Contestant 2')}" />
+
+                        <g:sortableColumn property="table.name" title="Table" />
+
 					</tr>
 				</thead>
 				<tbody>
@@ -34,7 +38,11 @@
 					
 						<td><g:formatBoolean boolean="${queueInstance.completed}" /></td>
 					
-						<td>${fieldValue(bean: queueInstance, field: "contestant")}</td>
+						<td>${fieldValue(bean: queueInstance, field: "contestant1")}</td>
+
+                        <td>${fieldValue(bean: queueInstance, field: "contestant2")}</td>
+
+                        <td>${fieldValue(bean: queueInstance, field: "table")}</td>
 					
 					</tr>
 				</g:each>

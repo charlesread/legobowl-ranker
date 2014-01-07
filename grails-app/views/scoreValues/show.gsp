@@ -20,6 +20,10 @@
                 <th><a href="">Value</a></th>
                 </thead>
                 <tr>
+                    <td>Indicative</td>
+                    <td><g:formatBoolean boolean="${scoreValuesInstance?.indicative}" /></td>
+                </tr>
+                <tr>
                     <td>
                         <g:message code="score.a11.label" default="A11" />
                     </td>
@@ -124,14 +128,19 @@
                         <g:fieldValue bean="${scoreValuesInstance}" field="agg" />
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">${scoreValuesInstance?.scoreComment ? "<b>Comment:</b> ${scoreValuesInstance?.scoreComment}" : "No comment"}</td>
+                </tr>
 
             </table>
-			<g:form>
+                 <g:form>
                 <div class="buttons">
 				%{--<fieldset class="buttons">--}%
                     %{--<g:hiddenField name="_action_delete" value="delete"/>--}%
 					<g:hiddenField name="id" value="${scoreValuesInstance?.id}" />
-					<g:link class="edit" action="edit" id="${scoreValuesInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                <g:link class="edit" action="makeIndicative" id="${scoreValuesInstance?.id}">toggle indicative</g:link>
+
+                <g:link class="edit" action="edit" id="${scoreValuesInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                     %{--<a class="blueButton" onclick="return deleteConfirm()">delete</a>--}%
                     %{--<g:link onclick="return deleteConfirm()">delete</g:link>--}%
 					%{--<g:actionSubmit style="-webkit-appearance: none;appearance: none;-moz-appearance:none;" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%

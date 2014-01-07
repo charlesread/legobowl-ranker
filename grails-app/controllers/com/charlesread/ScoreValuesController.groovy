@@ -146,4 +146,10 @@ class ScoreValuesController {
 
 //        render(template: '/scoreValues/report', model: [scoreValuesInstance: scoreValuesInstance] )
     }
+
+    def makeIndicative(Long id) {
+        ScoreValues scoreValuesInstance = ScoreValues.get(id)
+        appService.toggleIndicative(scoreValuesInstance)
+        render(view: 'show', model: [scoreValuesInstance: scoreValuesInstance])
+    }
 }
