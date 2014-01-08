@@ -17,7 +17,9 @@ class AppUserController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.sort = params.sort ?: 'username'
+        params.order = params.order ?: 'asc'
+//        params.max = Math.min(max ?: 10, 100)
 
         [appUserInstanceList: AppUser.list(params), appUserInstanceTotal: AppUser.count()]
     }

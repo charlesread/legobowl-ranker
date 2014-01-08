@@ -144,7 +144,7 @@ html, body {
 	padding-top:100px;
 }
 
-input[type=submit], input[type=button], .edit, .blueButton {
+input[type=submit], input[type=button], .edit, .blueButton, .pagination span, .pagination a {
 
     background-color:#268DFF; /*  FFDC7A     268DFF  */
     display: inline-block;
@@ -544,5 +544,14 @@ input.roundedOne[type=radio]:checked + span {
 }
 .valuesCriterionBlock {
     background-color: #FFD0CA;
+}
+
+span.currentStep {
+    background-color:#fff;
+    color: #268DFF;
+    /*border: 1px solid #268DFF;*/
+}
+.pagination {
+    margin-top: 20px;
 }
 

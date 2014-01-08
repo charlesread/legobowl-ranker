@@ -66,9 +66,9 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${appUserInstanceTotal}" />
-			</div>
+			%{--<div class="pagination">--}%
+				%{--<g:paginate total="${appUserInstanceTotal}" />--}%
+			%{--</div>--}%
 		</div>
 	</body>
 </html>
