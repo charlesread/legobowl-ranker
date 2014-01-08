@@ -14,9 +14,11 @@
             <tr>
                 <td><h1><g:message code="default.list.label" args="[entityName]" /></h1></td>
                 <td style="text-align: right; color: #666;  ">
+                <sec:ifAnyGranted roles="ROLE_ADMIN">
                     <g:form action="list" method="post" name="main">
                         (optional) filter by <g:select name="contestant" optionKey="id" from="${com.charlesread.Contestant.list(sort: "code", order: 'asc')}" onchange="document.main.submit();"  noSelection="${['':'-- select a contestant --']}" value="${params.contestant}" />
                     </g:form>
+                </sec:ifAnyGranted>
                 </td>
             </tr>
         </table>

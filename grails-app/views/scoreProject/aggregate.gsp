@@ -44,7 +44,7 @@
 
                 <td>${fieldValue(bean: scoreInstance, field: "aggC")} (${((fieldValue(bean: scoreInstance, field: "aggC").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
 
-                <td>${fieldValue(bean: scoreInstance, field: "aggTotal")} (${((fieldValue(bean: scoreInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
+                <td>${fieldValue(bean: scoreInstance, field: "aggTotal")} (${((fieldValue(bean: scoreInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).round(3).toString()}%) ${com.charlesread.RoomAverages.get(ScoreProject.findByContestant(scoreInstance.contestant)?.judge?.roomId)}</td>
 
             </tr>
         </g:each>

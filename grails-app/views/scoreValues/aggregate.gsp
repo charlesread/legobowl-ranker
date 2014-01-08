@@ -12,7 +12,7 @@
 <g:render template="nav" />
 
 <div id="list-score" class="content scaffold-list" role="main">
-    <h1>project score aggregation (by contestant)</h1>
+    <h1>core values score aggregation (by contestant)</h1>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
@@ -44,7 +44,7 @@
 
                 <td>${fieldValue(bean: scoreInstance, field: "aggC")} (${((fieldValue(bean: scoreInstance, field: "aggC").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
 
-                <td>${fieldValue(bean: scoreInstance, field: "aggTotal")} (${((fieldValue(bean: scoreInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).round(3).toString()}%)</td>
+                <td>${fieldValue(bean: scoreInstance, field: "aggTotal")} (${((fieldValue(bean: scoreInstance, field: "aggTotal").toFloat() / 4.toFloat())*100).round(3).toString()}%) ${com.charlesread.RoomAverages.get(ScoreValues.findByContestant(scoreInstance.contestant)?.judge?.roomId)}</td>
 
             </tr>
         </g:each>
