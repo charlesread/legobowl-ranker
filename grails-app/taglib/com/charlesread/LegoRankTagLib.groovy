@@ -140,7 +140,7 @@ class LegoRankTagLib {
             out << "<li>${g.link(controller: "scoreProject", action: "list"){"project scores"}}</li>"
         }
         if (admin || (criterionGroup == 124 && judge)) {
-            out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"technical scores"}}</li>"
+            out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"robot design scores"}}</li>"
         }
         if (admin || judge) {
             out << "<li>${g.link(controller: "aggregation", action: "index"){"score aggregation"}}</li>"

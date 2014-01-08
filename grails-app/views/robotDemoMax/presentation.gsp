@@ -44,7 +44,7 @@
     </script>
   <style>
     body {
-        background-color: #ccc;
+        background-color: #EDF6FF;
         font-family:Arial, Helvetica, sans-serif;
     }
       .textDiv_Days {
@@ -165,6 +165,38 @@
           width: 100px;
           height: 30px;
       }
+      .queueWrapper {
+          margin: 0px auto 20px auto;
+          width: 1200px;
+          /*background-color: #fff;*/
+          text-align: center;
+      }
+      .queueTable {
+          width: 100%;
+      }
+      .queueTable tr td {
+          width: 25%;
+      }
+
+      .queueHolder {
+          /*width: 100%;*/
+          padding: 5px;
+          margin: 5px;
+          border-radius: 5px;
+          background-color: #FFEED9;
+          border: 1px dashed #F58500;
+
+      }
+      .queue {
+
+      }
+      .queue tr td {
+          text-align: center;
+      }
+    .queue tr:first-child td:first-child {
+        font-weight: bold;
+        color: #F58500;
+    }
 
   </style>
 </head>
@@ -224,7 +256,28 @@
 <div id="twrapper">
     <input type="text" id="time" style="display: none;" />
 </div>
+<div class="queueWrapper">
+    <table class="queueTable">
+        <tr>
+            <g:each in="${queues}" var="queue">
+                <td>
+                    <div class="queueHolder">
+                    <table class="queue">
+                        <tr>
+                            <td>Table ${queue.table} (secuence: ${queue.sequence})</td>
+                        </tr>
+                        <td>
+                            ${queue.contestant1} - ${queue.contestant2}
+                        </td>
+                    </table>
+                    </div>
+                </td>
+            </g:each>
+        </tr>
+    </table>
+</div>
 <div id="tablewrapper">
+
     <table class='presentation'>
         <thead>
         <tr>
@@ -238,6 +291,7 @@
         </thead>
         <g:render template="data" />
     </table>
+
 </div>
 <audio controls="controls" preload="auto" style="display: none;">
     <source src="<g:resource dir="audio" file="chimes.mp3" />" type="audio/mpeg">
