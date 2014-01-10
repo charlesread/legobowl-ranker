@@ -100,7 +100,20 @@
       /*.flip-clock-wrapper ul li a div.up:after {*/
           /*top:88px;*/
       /*}*/
+
+    .presentationHolder {
+        width: 100%;
+    /*}*/
+    }
+    /*.presentationHolder tbody:first-child tr:first-child td:first-child {*/
+        /*width: 50%;*/
+        /*padding: 10px;*/
+
+    /*}*/
+
       .presentation {
+
+          width: 100%;
           border-collapse: separate;
           border-spacing:0px;
           font-size: 12px;
@@ -143,17 +156,17 @@
           border-bottom: 1px solid #222 ;
       }
       .presentation tr th:nth-child(1) {
-          width: 50px;
+          width: 40px;
       }
     .presentation tr th:nth-child(2) {
-        width: 300px;
+        /*width: 200px;*/
     }
     .presentation tr th:nth-child(3) {
-        width: 150px;
-    }
-    .presentation tr th:nth-child(n+4) {
         width: 100px;
     }
+    /*.presentation tr th:nth-child(n+4) {*/
+        /*width: 100px;*/
+    /*}*/
       .presentation th, .presentation td {
           padding: 5px;
       }
@@ -264,7 +277,7 @@
                     <div class="queueHolder">
                     <table class="queue">
                         <tr>
-                            <td>Table ${queue.table} (secuence: ${queue.sequence})</td>
+                            <td>Table ${queue.table}</td>
                         </tr>
                         <td>
                             ${queue.contestant1} - ${queue.contestant2}
@@ -277,20 +290,51 @@
     </table>
 </div>
 <div id="tablewrapper">
-
-    <table class='presentation'>
-        <thead>
+    <table class="presentationHolder" cellpadding=10>
         <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Highest Score</th>
-            <th>Round 1</th>
-            <th>Round 2</th>
-            <th>Round 3</th>
+            <td width="50%">
+                <table class='presentation'>
+                    <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Highest Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${data1}" var="d">
+                        <tr>
+                            <td>${d.rank}</td>
+                            <td>${d.contestant}</td>
+                            <td>${d.agg}</td>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class='presentation'>
+                    <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Highest Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${data2}" var="d">
+                        <tr>
+                            <td>${d.rank}</td>
+                            <td>${d.contestant}</td>
+                            <td>${d.agg}</td>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </td>
         </tr>
-        </thead>
-        <g:render template="data" />
     </table>
+
 
 </div>
 <audio controls="controls" preload="auto" style="display: none;">

@@ -17,7 +17,7 @@ class RobotDemoMaxController {
         params.order = params.order ?: 'desc'
 
         def queues = Queue.findAll("from Queue a where a.completed = 0 order by a.sequence asc, a.table asc", [max:4])
-        [data: RobotDemoMax.list(params), queues: queues]
+        [data: RobotDemoMax.list(params), queues: queues, data1: RobotDemoMax.list(sort: 'agg', order: 'desc', max: 16), data2: RobotDemoMax.list(sort: 'agg', order: 'desc', max: 16, offset: 16)]
     }
 
 }
