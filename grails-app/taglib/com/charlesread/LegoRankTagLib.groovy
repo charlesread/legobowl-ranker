@@ -134,19 +134,19 @@ class LegoRankTagLib {
         Boolean judge = springSecurityService.currentUser.judge
         Boolean referee = springSecurityService.currentUser.referee
         if (admin || (criterionGroup == 123 && judge)) {
-            out << "<li>${g.link(controller: "scoreValues", action: "list"){"core values scores"}}</li>"
+            out << "<li>${g.link(controller: "scoreValues", action: "list"){"<i class=\"fa fa-cog\"></i> core values scores"}}</li>"
         }
         if (admin || (criterionGroup == 122 && judge)) {
-            out << "<li>${g.link(controller: "scoreProject", action: "list"){"project scores"}}</li>"
+            out << "<li>${g.link(controller: "scoreProject", action: "list"){"<i class=\"fa fa-cog\"></i> project scores"}}</li>"
         }
         if (admin || (criterionGroup == 124 && judge)) {
-            out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"robot design scores"}}</li>"
+            out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"<i class=\"fa fa-cog\"></i> robot design scores"}}</li>"
         }
         if (admin || judge) {
             out << "<li>${g.link(controller: "aggregation", action: "index"){"<i class=\"fa fa-cogs\"></i> score aggregation"}}</li>"
         }
         if (admin || referee) {
-            out << "<li>${g.link(controller: "robotDemo", action: "list"){"robot demonstration scores"}}</li>"
+            out << "<li>${g.link(controller: "robotDemo", action: "list"){"<i class=\"fa fa-cog\"></i> robot demo scores"}}</li>"
         }
     }
 

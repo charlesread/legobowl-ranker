@@ -43,9 +43,9 @@
                 %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
                 <li><g:link class="adminlinks" controller="contestant" action="list"><i class="fa fa-users"></i> contestants</g:link></li>
                 <li><g:link class="adminlinks" controller="appUser" action="list"><i class="fa fa-user"></i> users (and judges)</g:link></li>
-                <li><g:link class="adminlinks" controller="room" action="list">rooms</g:link></li>
+                <li><g:link class="adminlinks" controller="room" action="list"><i class="fa fa-circle-o"></i> rooms</g:link></li>
                 <li><g:link class="adminlinks" controller="queue" action="list"><i class="fa fa-list-ol"></i> queue</g:link></li>
-                <li><g:link class="adminlinks" controller="robotDemoTable" action="list">tables</g:link></li>
+                <li><g:link class="adminlinks" controller="robotDemoTable" action="list"><i class="fa fa-circle-o"></i> tables</g:link></li>
 
             </ul>
         </sec:ifAnyGranted>
