@@ -143,7 +143,7 @@ class LegoRankTagLib {
             out << "<li>${g.link(controller: "scoreTechnical", action: "list"){"robot design scores"}}</li>"
         }
         if (admin || judge) {
-            out << "<li>${g.link(controller: "aggregation", action: "index"){"score aggregation"}}</li>"
+            out << "<li>${g.link(controller: "aggregation", action: "index"){"<i class=\"fa fa-cogs\"></i> score aggregation"}}</li>"
         }
         if (admin || referee) {
             out << "<li>${g.link(controller: "robotDemo", action: "list"){"robot demonstration scores"}}</li>"

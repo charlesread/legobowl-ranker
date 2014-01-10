@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 %{--<g:set var="entityName" value="${message(code: 'linkerLink.label', default: 'link')}" />--}%
 <title>FLL - <g:layoutTitle /></title>
@@ -40,10 +41,10 @@
         <sec:ifAnyGranted roles="ROLE_ADMIN">
             <ul style="margin-top: 15px;">
                 %{--<li><g:link class="adminlinks" controller="criteriaGroup" action="list">criteria groups</g:link></li>--}%
-                <li><g:link class="adminlinks" controller="contestant" action="list">contestants</g:link></li>
-                <li><g:link class="adminlinks" controller="appUser" action="list">users (and judges)</g:link></li>
+                <li><g:link class="adminlinks" controller="contestant" action="list"><i class="fa fa-users"></i> contestants</g:link></li>
+                <li><g:link class="adminlinks" controller="appUser" action="list"><i class="fa fa-user"></i> users (and judges)</g:link></li>
                 <li><g:link class="adminlinks" controller="room" action="list">rooms</g:link></li>
-                <li><g:link class="adminlinks" controller="queue" action="list">queue</g:link></li>
+                <li><g:link class="adminlinks" controller="queue" action="list"><i class="fa fa-list-ol"></i> queue</g:link></li>
                 <li><g:link class="adminlinks" controller="robotDemoTable" action="list">tables</g:link></li>
 
             </ul>
