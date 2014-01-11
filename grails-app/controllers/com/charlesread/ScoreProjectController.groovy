@@ -17,7 +17,7 @@ class ScoreProjectController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+//        params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
             list = params.contestant ? ScoreProject.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreProject.list(params)

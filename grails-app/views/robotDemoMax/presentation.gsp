@@ -74,7 +74,6 @@
         margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
-
     }
     #tablewrapper {
         margin-left: auto;
@@ -117,9 +116,9 @@
           border-collapse: separate;
           border-spacing:0px;
           font-size: 12px;
-          -webkit-box-shadow: 0 8px 6px -6px #111;
-          -moz-box-shadow: 0 8px 6px -6px #111;
-          box-shadow: 0 8px 6px -6px #111;
+          /*-webkit-box-shadow: 0 8px 6px -6px #111;*/
+          /*-moz-box-shadow: 0 8px 6px -6px #111;*/
+          /*box-shadow: 0 8px 6px -6px #111;*/
       }
     .presentation thead tr th:first-child {
         border-top-left-radius: 5px;
@@ -136,24 +135,24 @@
         border-bottom-right-radius: 5px;
     }
     .presentation tbody tr:nth-child(2n) {
-        background-color: #aaa;
+        background-color: #fff;
     }
 
     .presentation tbody tr:nth-child(2n+1) {
-        background-color: #999;
+        background-color: #eee;
     }
       .presentation thead tr {
-          color: #fff;
+          color: #222;
           background: #333; /* for non-css3 browsers */
 
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#444'); /* for IE */
-          background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#444)); /* for webkit browsers */
-          background: -moz-linear-gradient(top,  #333,  #444); /* for firefox 3.6+ */
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ddd', endColorstr='#ccc'); /* for IE */
+          background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc)); /* for webkit browsers */
+          background: -moz-linear-gradient(top,  #ddd,  #ccc); /* for firefox 3.6+ */
           text-align: left;
-          border-bottom: 1px solid #000 ;
+          border-bottom: 1px solid #ddd;
       }
       .presentation thead tr th {
-          border-bottom: 1px solid #222 ;
+          border-bottom: 1px solid #bbb ;
       }
       .presentation tr th:nth-child(1) {
           width: 40px;
@@ -211,10 +210,32 @@
         color: #F58500;
     }
 
+    .nf_logo, .fll_logo {
+        position: absolute;
+        top: 15px;
+        background-repeat: no-repeat;
+    }
+    .nf_logo {
+        width: 203px;
+        height: 159px;
+        background-image: url("/legoleague/static/images/nf.png");
+        left: 30px;;
+    }
+    .fll_logo {
+        width: 173px;
+        height: 165px;
+        background-image: url("/legoleague/static/images/flllogo.png");
+        right: 30px;
+    }
+
+
   </style>
 </head>
 <body>
     %{--<div class="countdown" data-timer="180"></div>--}%
+<g:if test="${!scoreboard}">
+    <div class="nf_logo"></div>
+    <div class="fll_logo"></div>
 <div id="timerwrapper">
     <div class="countdown"></div>
     <div id="controls">
@@ -261,7 +282,17 @@
     }
 
 </script>
+</g:if>
+<g:else>
+    <script>
+        t = setTimeout('location.reload()',30000);
+    </script>
 
+    <div id="timerwrapper" style="position: relative; width: 450px; height: 200px; margin-top: 10px;">
+        <div class="nf_logo"></div>
+        <div class="fll_logo"></div>
+    </div>
+</g:else>
 
 
 
@@ -293,6 +324,7 @@
     <table class="presentationHolder" cellpadding=10>
         <tr>
             <td width="50%">
+                <g:if test="${data1.size() > 0}">
                 <table class='presentation'>
                     <thead>
                     <tr>
@@ -311,8 +343,10 @@
                     </g:each>
                     </tbody>
                 </table>
+                </g:if>
             </td>
             <td>
+                <g:if test="${data2.size() > 0}">
                 <table class='presentation'>
                     <thead>
                     <tr>
@@ -331,6 +365,7 @@
                     </g:each>
                     </tbody>
                 </table>
+                </g:if>
             </td>
         </tr>
     </table>

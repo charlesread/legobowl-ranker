@@ -9,5 +9,11 @@ class UrlMappings {
 
 		"/"(view:"/index")
 		"500"(view:'/error')
+        "/timer"(controller: 'robotDemoMax', action: 'presentation')
+        "/scoreboard" {
+            controller = 'robotDemoMax'
+            action = 'presentation'
+            scoreboard = true
+        }
 	}
 }

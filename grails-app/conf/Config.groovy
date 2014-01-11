@@ -113,7 +113,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-    '/queue/*':                        ['ROLE_ADMIN']
+    '/queue/*':                       ['ROLE_ADMIN'],
+    '/timer':                         ['permitAll']
 ]
 
 grails.plugin.springsecurity.rejectIfNoRule = true
