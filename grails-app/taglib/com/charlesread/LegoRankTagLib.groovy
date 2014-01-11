@@ -86,41 +86,6 @@ class LegoRankTagLib {
 
     }
 
-//    def criterionBlock = {attr, body ->
-//
-//        Criterion c = Criterion.findByCode(attr.code)
-//
-//
-//        out << "<div class='criterionBlock' style='background-color:${attr.color};'><table class='criterionTable' width='800'>"
-//        out << "<tr>"
-//        out << "<td colspan='2'>"
-//        out << c.name
-//        out << "</td>"
-//        out << "<td colspan='3'>"
-//        out << c.description
-//        out << "</td>"
-//        out << "</tr>"
-//        out << "<tr class='radiorow' width='40'>"
-//        out << "<td>ND</td>"
-//        out << "<td width='190'>"
-//        out << c.s1
-//        out << "</td>"
-//        out << "<td width='190'>"
-//        out << c.s2
-//        out << "</td>"
-//        out << "<td width='190'>"
-//        out << c.s3
-//        out << "</td>"
-//        out << "<td width='190'>"
-//        out << c.s4
-//        out << "</td>"
-//        out << "</tr>"
-//        out << g.radioLego(name: attr.name, val: attr.criterion)
-//        out << "</table></div>"
-//
-//
-//    }
-
     def currentUserFirstName = {attr, body ->
 
         out << springSecurityService.currentUser.firstName
@@ -266,7 +231,6 @@ class LegoRankTagLib {
         out << "<input type='checkbox' id='${attr.name}a' />"
         out << "<span>" + g.message(code: "robotDemo.${attr.name}a.label") + "</span>"
         out << "</label>"
-//        out << "<input type='hidden' name='${attr.name}' id='${attr.name}_val' value='0' />"
         out << "</td>"
         out << "<td width='40' rowspan='3'>"
         out << "<span id='${attr.name}_show_mult'>0</span>"

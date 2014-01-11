@@ -17,7 +17,6 @@ class ScoreProjectController {
     }
 
     def list(Integer max) {
-//        params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
             list = params.contestant ? ScoreProject.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreProject.list(params)
@@ -25,7 +24,6 @@ class ScoreProjectController {
             list = ScoreProject.findAllByJudge(springSecurityService.currentUser, params)
         }
         [scoreProjectInstanceList: list, scoreProjectInstanceTotal: ScoreProject.count()]
-//        println("called")
     }
 
     def create() {
@@ -119,13 +117,11 @@ class ScoreProjectController {
     def aggregate() {
         def c = ScoreProject.createCriteria().list() {
             projections {
-
                 groupProperty('contestant')
                 avg('agg_s1','agg1')
                 avg('agg_s2','agg2')
                 avg('agg_s2','agg3')
                 avg('agg','aggTotal')
-
             }
             order params.sort ?: 'aggTotal',params.order ?: 'desc'
 
@@ -144,8 +140,6 @@ class ScoreProjectController {
         Contestant contestant = Contestant.get(id)
         def scoreProjectInstance = ScoreProject.findByContestantAndIndicative(contestant,true)
         renderPdf(template: "/scoreProject/report", model: [scoreProjectInstance: scoreProjectInstance], filename: "${contestant} Project Score Report.pdf")
-
-//        render(template: '/scoreProject/report', model: [scoreProjectInstance: scoreProjectInstance] )
     }
 
     def makeIndicative(Long id) {

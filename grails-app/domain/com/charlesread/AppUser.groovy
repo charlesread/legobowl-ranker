@@ -57,10 +57,6 @@ class AppUser {
         "$userFullName"
     }
 
-//    String fullName() {
-//        "$firstName $lastName"
-//    }
-
     Boolean isAdmin() {
         return SpringSecurityUtils.ifAnyGranted('ROLE_ADMIN')
     }

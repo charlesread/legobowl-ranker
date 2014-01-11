@@ -17,7 +17,6 @@ class ScoreValuesController {
     }
 
     def list(Integer max) {
-//        params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
             list = params.contestant ? ScoreValues.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreValues.list(params)
@@ -134,7 +133,6 @@ class ScoreValuesController {
         c.eachWithIndex {v,i ->
             out[i] = new Aggregate(contestant: v[0], aggA: v[1], aggB: v[2], aggC: v[3], aggTotal: v[4])
         }
-        //render out
         render(view: 'aggregate', model: [aggregates: out])
 
     }
@@ -143,8 +141,6 @@ class ScoreValuesController {
         Contestant contestant = Contestant.get(id)
         def scoreValuesInstance = ScoreValues.findByContestantAndIndicative(contestant,true)
         renderPdf(template: "/scoreValues/report", model: [scoreValuesInstance: scoreValuesInstance], filename: "${contestant} Core Values Score Report.pdf")
-
-//        render(template: '/scoreValues/report', model: [scoreValuesInstance: scoreValuesInstance] )
     }
 
     def makeIndicative(Long id) {

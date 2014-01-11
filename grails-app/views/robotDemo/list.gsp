@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 
-                        <g:sortableColumn property="contestant.name" title="${message(code: 'robotDemo.contestant.label')}" />
+                        <g:sortableColumn property="contestant" title="${message(code: 'robotDemo.contestant.label')}" />
 
                         <g:sortableColumn property="judge.userFullName" title="${message(code: 'robotDemo.judge.label')}" />
 

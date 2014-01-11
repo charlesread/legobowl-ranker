@@ -30,7 +30,3 @@ class AggregationController {
 
     }
 }
-
-//avg('agg_s1','agg1')
-//avg('agg_s2','agg2')
-//avg('agg_s2','agg3')

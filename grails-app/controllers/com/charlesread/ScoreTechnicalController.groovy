@@ -17,7 +17,6 @@ class ScoreTechnicalController {
     }
 
     def list(Integer max) {
-//        params.max = Math.min(max ?: 10, 100)
         def list
         if (springSecurityService.currentUser.admin) {
             list = params.contestant ? ScoreTechnical.findAllByContestant(Contestant.get(params.contestant.toLong())) : ScoreTechnical.list(params)
@@ -133,7 +132,6 @@ class ScoreTechnicalController {
         c.eachWithIndex {v,i ->
             out[i] = new Aggregate(contestant: v[0], aggA: v[1], aggB: v[2], aggC: v[3], aggTotal: v[4])
         }
-        //render out
         render(view: 'aggregate', model: [aggregates: out])
 
     }
@@ -142,8 +140,6 @@ class ScoreTechnicalController {
         Contestant contestant = Contestant.get(id)
         def scoreTechnicalInstance = ScoreTechnical.findByContestantAndIndicative(contestant,true)
         renderPdf(template: "/scoreTechnical/report", model: [scoreTechnicalInstance: scoreTechnicalInstance], filename: "${contestant} Technical Score Report.pdf")
-
-//        render(template: '/scoreTechnical/report', model: [scoreTechnicalInstance: scoreTechnicalInstance] )
     }
 
     def makeIndicative(Long id) {

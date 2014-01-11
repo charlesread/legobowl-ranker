@@ -12,16 +12,12 @@ hibernate {
 // environment specific settings
 environments {
     development {
-//        dataSource {
-//            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-//            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-//        }
         dataSource {
             pooled = true
             dialect = org.hibernate.dialect.Oracle10gDialect
             driverClassName = 'oracle.jdbc.OracleDriver'
-            url = "jdbc:oracle:thin:@dev.charlesread.com:1521:XE"
-            username = "legomgr"
+            url = "jdbc:oracle:thin:@xxx:yyyy:zz"
+            username = ""
             password = ""
             properties {
                 maxActive = -1
@@ -47,8 +43,8 @@ environments {
             pooled = true
             dialect = org.hibernate.dialect.Oracle10gDialect
             driverClassName = 'oracle.jdbc.OracleDriver'
-            url = "jdbc:oracle:thin:@dev.charlesread.com:1521:XE"
-            username = "legomrg"
+            url = "jdbc:oracle:thin:@localhost:1521:XE"
+            username = ""
             password = ""
             properties {
                 maxActive = -1

@@ -2,8 +2,6 @@ package com.charlesread
 
 import grails.plugin.springsecurity.annotation.Secured
 
-
-
 class RobotDemoMaxController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER','ROLE_REFEREE'])
