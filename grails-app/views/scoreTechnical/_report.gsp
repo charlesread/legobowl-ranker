@@ -17,7 +17,7 @@
 <body>
 <div id="header">
     <h1>
-        ${scoreTechnicalInstance.contestant} Core Values Score Report
+        ${scoreTechnicalInstance.contestant} Robot Design Score Report
     </h1>
 </div>
 <div class="blockWrapper">

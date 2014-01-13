@@ -139,7 +139,7 @@ class ScoreTechnicalController {
     def report(Long id) {
         Contestant contestant = Contestant.get(id)
         def scoreTechnicalInstance = ScoreTechnical.findByContestantAndIndicative(contestant,true)
-        renderPdf(template: "/scoreTechnical/report", model: [scoreTechnicalInstance: scoreTechnicalInstance], filename: "${contestant} Technical Score Report.pdf")
+        renderPdf(template: "/scoreTechnical/report", model: [scoreTechnicalInstance: scoreTechnicalInstance], filename: "${contestant} Robot Design Score Report.pdf")
     }
 
     def makeIndicative(Long id) {
