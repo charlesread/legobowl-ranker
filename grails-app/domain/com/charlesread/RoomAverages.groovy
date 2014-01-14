@@ -9,6 +9,7 @@ class RoomAverages {
     }
 
     static mapping = {
+    	id generator: "sequence", params: [sequence: "LEGO_SEQ"]
         version false
     }
 

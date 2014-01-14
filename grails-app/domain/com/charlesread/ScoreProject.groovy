@@ -24,6 +24,7 @@ class ScoreProject {
     static constraints = {
         scoreComment(nullable: true, maxSize: 5000)
         indicative(nullable: true)
+        judge(unique: 'contestant')
     }
 
     static mapping = {

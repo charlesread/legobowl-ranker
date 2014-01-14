@@ -4,9 +4,11 @@ class RobotDemoTable {
 
     String name
 
-    static constraints = {
+    static constraints = {   
+    }
 
-        id generator: "sequence", params: [sequence: "LEGO_SEQ"]
+    static mapping = {
+    	id generator: "sequence", params: [sequence: "LEGO_SEQ"]
     }
 
     String toString() {

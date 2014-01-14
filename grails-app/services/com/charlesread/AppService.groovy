@@ -3,9 +3,7 @@ package com.charlesread
 class AppService {
 
     def indicativeCheck(def group, String indicative) {
-        println("indicativeCheck called")
         if (indicative == 'on') {
-            println("ind checked")
             def list
             switch (group) {
                 case ScoreValues:
@@ -21,7 +19,6 @@ class AppService {
                     break
             }
             if (list.size() > 0) {
-                println("list > 0")
                 list.each {
                     it.indicative = false
                     it.save(flush: true)
@@ -31,7 +28,6 @@ class AppService {
     }
 
     def toggleIndicative(def score) {
-        println score.indicative == true ? 'on' : ''
         if (!score.indicative) {
             indicativeCheck(score, 'on')
         }

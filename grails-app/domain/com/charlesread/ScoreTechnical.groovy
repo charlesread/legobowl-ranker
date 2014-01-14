@@ -23,6 +23,7 @@ class ScoreTechnical {
     static constraints = {
         scoreComment(nullable: true)
         indicative(nullable: true)
+        judge(unique: 'contestant')
     }
 
     static mapping = {
